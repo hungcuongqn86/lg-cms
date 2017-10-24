@@ -1,0 +1,198 @@
+<!-- Left menu -->
+{include file="$rootpath/modules/setup/menu.html" module='category'}
+
+<div class="main-content">
+    <div class="content-header">
+        <span class="heading-content-label">Category</span>
+    </div>
+    <div id="overview"></div>
+    <div class="content-body no-border">
+        <button class="btn-form btn-form-blank" id="btn-add">
+            <i class="ion-plus"></i>
+            Add
+        </button>
+        <button class="btn-form btn-form-blank" id="btn-refresh">
+            <i class="ion-refresh"></i>
+            Refresh
+        </button>
+        <div class="dropdown dropdown-setting">
+            <a href="javascript:(void)" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="{$rooturl}resource/image/icons.png" style="margin-top: 10px;"></img>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <form class="form" role="form">
+                        <p>Show columns</p>
+                        <div class="form-group">
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-tb" id="lb-chk-col-tb-2" colnumb="2" checked>
+                                <label for="lb-chk-col-tb-2">
+                                    Description
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-tb" id="lb-chk-col-tb-3" colnumb="3" checked>
+                                <label for="lb-chk-col-tb-3">
+                                    Visible
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-tb" id="lb-chk-col-tb-4" colnumb="4" checked>
+                                <label for="lb-chk-col-tb-4">
+                                    State
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-tb" id="lb-chk-col-tb-5" colnumb="5" checked>
+                                <label for="lb-chk-col-tb-5">
+                                    Create
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-tb" id="lb-chk-col-tb-6" colnumb="6" checked>
+                                <label for="lb-chk-col-tb-6">
+                                    Update
+                                </label>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <button type="button" class="btn btn-form" id="btn-form-apply">
+                                Apply
+                            </button>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <div class="content-option">
+            <ul class="nav navbar-nav">
+                <li class="list-item"><span>Filter by</span></li>
+                <li class="list-item">
+                    <select class="form-control select-box" id="option-filter-state">
+                        <option value="">All</option>
+                        <option value="approved" selected="selected">Approved</option>
+                        <option value="unapproved">Unapproved</option>
+                        <option value="deleted">Deleted</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+        <div style="position: relative;margin-top: 20px">
+            <h4 class="category-list"><div id="div-category-list"><span id="sp_"><a class="a-category-list" href="#" sid="">Root</a></span></div></h4>
+            <hr/>
+            <table id="tb-form" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Parent</th>
+                    <th>Description</th>
+                    <th>Visible</th>
+                    <th>State</th>
+                    <th>Create</th>
+                    <th>Update</th>
+                    <th style="width:10px"></th>
+                    <th style="width:10px"></th>
+                    <th style="width:10px"></th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                </tbody>
+            </table>
+            <div class="data-loading" id="tb-form-loader"><span style="margin: auto;"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i></span></div>
+        </div>
+        
+    </div>
+</div>
+
+<div class="modal modal-form" id="modal-form">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="loader" id="modal-form-loader"></div>
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+                <span class="modal-title">Form detail</span>
+            </div>
+            <div class="modal-body">
+                <div class="content-tab">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#tab1" role="tab" data-toggle="tab">
+                                <span>General</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="tab1">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label for="lb-form-parent" class="col-sm-2 control-label">Parent</label>
+                                <div class="col-sm-10">
+                                    <label id="lb-form-parent" class="control-label">Root</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txt-form-name" class="col-sm-2 control-label">Name</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="txt-form-name">
+                                </div>
+                            </div>
+                            <div class="form-group" id="div-name-problem" style="display:none;">
+                                <label class="col-sm-2 control-label"></label>
+                                <div class="col-sm-10">
+                                    <span style="color:red">Please enter a name</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txt-form-desc" class="col-sm-2 control-label">Description</label>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" rows="3" id="txt-form-desc"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txt-form-state" class="col-sm-2 control-label">State</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control select-box" id="sl-form-state">
+                                    <option value="approved">Approved</option>
+                                    <option value="unapproved">Unapproved</option>
+                                    <option value="deleted">Deleted</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="chk-form-visible" class="col-sm-2 control-label">Visible</label>
+                                <div class="col-sm-10">
+                                    <div class="checkbox icheck checkbox-warning" style="padding-top:12px">
+                                        <input type="checkbox" id="chk-form-visible">
+                                        <label></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="lb-form-url" class="col-sm-2 control-label">URL</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="txt-form-url">
+                                    <label id="lb-form-url" class="control-label" style="display:none;"></label>
+                                </div>
+                            </div>
+                            <div class="form-group" id="div-form-domain" style="display:none;">
+                                <label for="sl-form-domain" class="col-sm-2 control-label">Domain</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control selectpicker" id="sl-form-domain" style="width:100%">
+                                    
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="text-right">
+                            <button type="button" class="btn-form btn-form-md" id="btn-form-save">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

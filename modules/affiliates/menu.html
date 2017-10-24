@@ -1,0 +1,22 @@
+<div class="left-menu">
+    <ul class="nav nav-menu">
+        <li {if $module == 'list'}class="active"{/if}>
+            <a href="{$rooturl}index.php?module=affiliates-list">
+                <img src="{$rooturl}/resource/image/money-men.png"/>
+                <span class="hidden-xs">Affiliates list</span>
+            </a>
+        </li>
+        <li {if $module == 'pending-approval'}class="active"{/if}>
+            <a href="{$rooturl}index.php?module=affiliates-pending-approval">
+                <img src="{$rooturl}/resource/image/user-12.png"/>
+                <span class="hidden-xs">Pending approval</span>
+            </a>
+        </li>
+        <li {if $module == 'recent-activity'}class="active"{/if}>
+            <a href="{$rooturl}index.php?module=affiliates-recent-activity">
+                <img src="{$rooturl}/resource/image/user-12.png"/>
+                <span class="hidden-xs">Recent activity</span>
+            </a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,189 @@
+<!-- jQuery 2.2.3 -->
+<script src="{$rooturl}resource/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="{$rooturl}resource/plugins/slick/slick.min.js"></script>
+<script src="{$rooturl}templates/_header.js?v=4"></script>
+
+<header class="main-header">
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{$rooturl}index.php">
+                <img class="" src="{$rooturl}/resource/image/logo.png" alt="">
+                <span class="text-logo hidden-xs">Burger</span><span class="text-logo text-logo-2 hidden-xs">CMS</span>
+            </a>
+            <div class="right-header pull-right hidden-lg hidden-md hidden-sm">
+                <a href="{$rooturl}index.php" style="position: relative; color: #6f6f6f;">
+                    <i class="ion-ios-bell-outline"></i>
+                    <span class="note">11</span>
+                </a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    {if $smarty.session.user.avatar}
+                    <img src="{$smarty.session.user.avatar}" class="user-image" alt="{$smarty.session.user.email}">
+                    {/if}
+                </a>
+                <ul class="dropdown-menu profile">
+                    <li class="user-info">
+                        <p class="text-center user-info-name">{$smarty.session.user.name}</p>
+                        <p class="text-center">
+                            {if $smarty.session.user.country}
+                            <small>Country: {$smarty.session.user.country}</small>
+                            {/if}
+                        </p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="btn-change-pw">Change password</a>
+                    </li>
+                    <li>
+                        <a href="{$rooturl}index.php?view=logout" >Sign out</a>
+                    </li>
+                </ul>
+            </div>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse js-navbar-collapse" id="bs-navbar-collapse">
+            <div class="right-header pull-right hidden-xs">
+                <a href="{$rooturl}index.php" style="position: relative; color: #6f6f6f;">
+                    <i class="ion-ios-bell-outline"></i>
+                    <span class="note">11</span>
+                </a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    {if $smarty.session.user.avatar}
+                    <img src="{$smarty.session.user.avatar}" class="user-image" alt="{$smarty.session.user.email}">
+                    {/if}
+                    <i class="ion-ios-arrow-down"></i>
+                </a>
+                <ul class="dropdown-menu profile">
+                    <li class="user-info">
+                        <p id="loginuser" class="text-center user-info-name">{$smarty.session.user.name}</p>
+                        <p class="text-center">
+                            {if $smarty.session.user.country}
+                            <small>Country: {$smarty.session.user.country}</small>
+                            {/if}
+                        </p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="btn-change-pw">Change password</a>
+                    </li>
+                    <li>
+                        <a href="{$rooturl}index.php?view=logout" >Sign out</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="nav navbar-nav slick-nav">
+                <li {if $menu == 'affiliates'}class="active"{/if}>
+                    <a href="{$rooturl}index.php?module=affiliates-list">
+                        <img src="{$rooturl}/resource/image/money-men.png"/>
+                        <p>Affiliates</p>
+                    </a>
+                </li>
+                <li {if $menu == 'reports'}class="active"{/if}>
+                    <a href="{$rooturl}index.php?module=reports-dashboard">
+                        <img src="{$rooturl}/resource/image/pie-chart-1.png"/>
+                        <p>Reports</p>
+                    </a>
+                </li>
+                <li {if $menu == 'customers'}class="active"{/if}>
+                    <a href="#">
+                        <img src="{$rooturl}/resource/image/3-men.png"/>
+                        <p>Customers</p>
+                    </a>
+                </li>
+                <li {if $menu == 'fulfillment'}class="active"{/if}>
+                    <a href="{$rooturl}index.php?module=fulfillment-dashboard">
+                        <img src="{$rooturl}/resource/image/laptop-1.png"/>
+                        <p>Fulfillment</p>
+                    </a>
+                </li>
+                <li {if $menu == 'partner'}class="active"{/if}>
+                    <a href="{$rooturl}index.php?module=partner-list">
+                        <img src="{$rooturl}/resource/image/handshake.png"/>
+                        <p>Partners</p>
+                    </a>
+                </li>
+                <li {if $menu == 'inventory'}class="active"{/if}>
+                    <a href="{$rooturl}index.php?module=inventory-base-group">
+                        <img src="{$rooturl}/resource/image/list.png"/>
+                        <p>Inventory</p>
+                    </a>
+                </li>
+                <li {if $menu == 'accounting'}class="active"{/if}>
+                    <a href="#">
+                        <img src="{$rooturl}/resource/image/user-14.png"/>
+                        <p>Accounting</p>
+                    </a>
+                </li>
+                <li {if $menu == 'setup'}class="active"{/if}>
+                    <a href="{$rooturl}index.php?module=setup-preference">
+                        <img src="{$rooturl}/resource/image/settings-3.png"/>
+                        <p>Setup</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <input type="hidden" id="curr-server-date" value="{$curr_date_value}">
+</header>
+
+<div class="modal" id="modal-change-password">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="loader" id="loader-modal-change-pw"></div>
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+                <i class="ion-locked"></i> <span class="modal-title">Change password</span>
+            </div>
+            <div class="modal-body">
+                <form class="form" role="form">
+                    <div class="form-group">
+                        <label for="txt-form-current-pw">Current password</label>
+                        <input type='password' class="form-control" id="txt-form-current-pw" />
+                    </div>
+                    <div class="form-group">
+                        <label for="txt-form-new-pw">New password</label>
+                        <input type='password' class="form-control" id="txt-form-new-pw" />
+                    </div>
+                    <div class="form-group">
+                        <label for="txt-form-new-pw-2">New password (again)</label>
+                        <input type='password' class="form-control" id="txt-form-new-pw-2" />
+                    </div>
+                    <div class="form-group">
+                        <span id="p-error-change-pw" style="color:red"></span>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-form btn-form-blank pull-left" data-dismiss="modal">Close</button>
+                <button type="button" class="btn-form" id="btn-modal-change-pw" style="width:75px"><b>Change</b></button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<div class="modal" id="modal-change-password-finish">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="loader" id="loader-modal-change-pw"></div>
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+                <i class="ion-locked"></i> <span class="modal-title">Change password</span>
+            </div>
+            <div class="modal-body">
+                <p class="finish-text">Your password was changed!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-form btn-form-blank pull-left" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

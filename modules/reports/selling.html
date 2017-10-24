@@ -1,0 +1,172 @@
+<!-- Left menu -->
+{include file="$rootpath/modules/reports/menu.html" module='selling'}
+
+<div class="main-content">
+    <div class="content-header">
+        <span class="heading-content-label">Selling/Revenue reports</span>
+        <div class="content-option">
+            <ul class="nav navbar-nav">
+                <li class="list-item"><span>Show:</span></li>
+                <li class="list-item">
+                    <select class="form-control select-box" id="option-date">
+                        <option value="today">Today</option>
+                        <option value="yesterday">Yesterday</option>
+                        <option value="last7days" selected="selected">Last 7 days</option>
+                        <option value="last28days">Last 28 days</option>
+                        <option value="customize" iclass="ion-calendar">Customize</option>
+                    </select>
+                </li>
+                <li class="list-item customize-date" style="display:none;">
+                    <input type="text" class="form-control date-ranger-picker pull-right" id="option-date-ranger-picker">
+                </li>
+                <li class="list-item">
+                    <button class="btn-form btn-form-blank">
+                        Export data
+                        <i class="ion-ios-download-outline ion-right"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="overview"></div>
+    <div class="content-body no-border">
+        <p class="content-body-label">Selling reports</p>
+        <button class="btn-form btn-form-blank" id="btn-refresh">
+            <i class="ion-refresh"></i>
+            Refresh
+        </button>
+        <div class="dropdown dropdown-setting">
+            <a href="javascript:(void)" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="{$rooturl}resource/image/icons.png" style="margin-top: 70px"></img>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <form class="form" role="form">
+                        <p>Show columns</p>
+                        <div class="form-group">
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" id="chk-col-country">
+                                <label for="chk-col-country">
+                                    Country
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" id="chk-col-city">
+                                <label for="chk-col-city">
+                                    City
+                                </label>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <button type="button" class="btn btn-form" id="btn-form-apply">
+                                Apply
+                            </button>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <div style="position:relative;margin-top: 20px">
+            <table id="tb-order" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>Number</th>
+                    <th>Date</th>
+                    <th>Country</th>
+                    <th>City</th>
+                    <th>Total sales</th>
+                    <th>Revenue</th>
+                    <th>Total traffic</th>
+                    <th>Conv. Rate</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Total</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th><span id="lb-total-sale"></span></th>
+                        <th><span id="lb-revenue"></span></th>
+                        <th><span id="lb-total-traffic"></span></th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="data-loading" id="tb-order-loader"><span style="margin: auto;"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i></span></div>
+        </div>
+    </div>
+    <div class="content-body no-border">
+        <p class="content-body-label">Revenue reports</p>
+        <button class="btn-form btn-form-blank" id="btn-refresh-2">
+            <i class="ion-refresh"></i>
+            Refresh
+        </button>
+        <div class="dropdown dropdown-setting">
+            <a href="javascript:(void)" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="{$rooturl}resource/image/icons.png" style="margin-top: 70px"></img>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <form class="form" role="form">
+                        <p>Show columns</p>
+                        <div class="form-group">
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" id="chk-col-country-2">
+                                <label for="chk-col-country-2">
+                                    Country
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" id="chk-col-city-2">
+                                <label for="chk-col-city-2">
+                                    City
+                                </label>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <button type="button" class="btn btn-form" id="btn-form-apply-2">
+                                Apply
+                            </button>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <div style="position: relative;margin-top: 20px">
+            <table id="tb-revenue" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>Number</th>
+                    <th>Date</th>
+                    <th>Country</th>
+                    <th>City</th>
+                    <th>Revenue</th>
+                    <th>Cost</th>
+                    <th>Net revenue</th>
+                    <th>Change(+/-)</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Total</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th><span id="lb-revenue"></span></th>
+                        <th><span id="lb-cost"></span></th>
+                        <th><span id="lb-net-revenue"></span></th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="data-loading" id="tb-revenue-loader"><span style="margin: auto;"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i></span></div>
+        </div>
+    </div>
+</div>

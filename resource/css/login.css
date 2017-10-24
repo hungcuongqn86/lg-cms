@@ -1,0 +1,81 @@
+/*Fonts*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: Montserrat;
+    background-color: #fcfdfe;
+    color: #333;
+}
+
+a {
+    color: #333;
+}
+
+a:hover,
+a:active,
+a:focus {
+    outline: none;
+    text-decoration: none;
+    color: #333;
+}
+
+.login-box {
+    text-align: center;
+    max-width: 450px;
+    margin: auto;
+    padding: 5% 15px;
+}
+
+.login-logo {
+    margin: 15px;
+}
+
+.icheck {
+    text-align: left;
+}
+
+.icheck label {
+    padding-left: 0;
+}
+
+.btn-signin {
+    height: 40px;
+    border-radius: 3px;
+    background-color: #fa9918;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.9px;
+    text-align: center;
+    color: #ffffff;
+    border: none;
+    width: 100%;
+}
+
+.btn-signin:hover, .btn-signin:focus {
+    background-color: #ffc715;
+}
+
+.text-input {
+    height: 58px;
+    border-radius: 3px;
+    border: solid 1px #dddddd;
+    box-shadow: none;
+    background-color: #fff;
+}
+
+.text-input:hover, .text-input:focus {
+    border: solid 1px #fa9918;
+    box-shadow: none;
+}
+
+.form-control-feedback {
+    height: 58px;
+    line-height: 58px;
+    color: #fa9918;
+}

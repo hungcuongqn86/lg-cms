@@ -1,0 +1,136 @@
+<!-- jQuery 2.2.3 -->
+<script src="{$rooturl}resource/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- DataTables -->
+<script src="{$rooturl}resource/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="{$rooturl}resource/plugins/datatables/dataTables.bootstrap.js?v=1"></script>
+<script src="{$rooturl}templates/_modal_campaign.js?v=8"></script>
+
+<div class="modal modal-campaign" id="modal-campaign">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" style="border:0">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+                <span class="modal-title"><span class="status">Campaign:</span> <span id="modal-camp-campaign-name"></span> - <span class="status">Status:</span> <span class="status-value" id="modal-camp-campaign-status"></span></span>
+            </div>
+            <div class="modal-body">
+                <div class="content-tab">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#campaign-preview" role="tab" data-toggle="tab">
+                                <i class="ion-tshirt"></i>
+                                <span>Preview</span>
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#campaign-design" role="tab" data-toggle="tab">
+                                <i class="ion-easel"></i>
+                                <span>Design</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="campaign-preview">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <p class="col-xs-4 text-style-2">ID</p>
+                                    <p class="col-xs-8 text-style-2 text-value" id="modal-campaign-id"></p>
+                                    <div class="clearfix"></div>
+                                    <p class="col-xs-4 text-style-2">Status</p>
+                                    <p class="col-xs-8 text-style-2 text-value" id="modal-campaign-state"></p>
+                                    <div class="clearfix"></div>
+                                    <p class="col-xs-4 text-style-2">Affiliate</p>
+                                    <p class="col-xs-8 text-style-2 text-value" id="modal-campaign-affiliate"></p>
+                                    <div class="clearfix"></div>
+                                    <p class="col-xs-4 text-style-2">Start date</p>
+                                    <p class="col-xs-8 text-style-2 text-value" id="modal-campaign-startdate"></p>
+                                    <div class="clearfix"></div>
+                                    <p class="col-xs-4 text-style-2">End date</p>
+                                    <p class="col-xs-8 text-style-2 text-value" id="modal-campaign-enddate"></p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <img class="img-responsive" id="modal-campaign-img-1"/>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <img class="img-responsive" id="modal-campaign-img-2"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="loader" id="modal-campaign-loader"></div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="campaign-design">
+                        <div class="dropdown dropdown-setting">
+                            <a href="javascript:(void)" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="{$rooturl}resource/image/icons.png"></img>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <form class="form" role="form">
+                                        <p>Show columns</p>
+                                        <div class="form-group">
+                                            <div class="checkbox icheck checkbox-warning">
+                                                <input type="checkbox" class="chk-col-campaign-design" id="lb-chk-col-campaign-design-1" colnumb="1" checked>
+                                                <label for="lb-chk-col-campaign-design-1">
+                                                    Design
+                                                </label>
+                                            </div>
+                                            <div class="checkbox icheck checkbox-warning">
+                                                <input type="checkbox" class="chk-col-campaign-design" id="lb-chk-col-campaign-design-2" colnumb="2" checked>
+                                                <label for="lb-chk-col-campaign-design-2">
+                                                    Base code
+                                                </label>
+                                            </div>
+                                            <div class="checkbox icheck checkbox-warning">
+                                                <input type="checkbox" class="chk-col-campaign-design" id="lb-chk-col-campaign-design-3" colnumb="3" checked>
+                                                <label for="lb-chk-col-campaign-design-3">
+                                                    Sale price
+                                                </label>
+                                            </div>
+                                            <div class="checkbox icheck checkbox-warning">
+                                                <input type="checkbox" class="chk-col-campaign-design" id="lb-chk-col-campaign-design-4" colnumb="4" checked>
+                                                <label for="lb-chk-col-campaign-design-4">
+                                                    Sale expected
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="text-right">
+                                            <button type="button" class="btn btn-form" id="btn-campaign-design-apply">
+                                                Apply
+                                            </button>
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                        <div style="position: relative;">
+                            <table id="tb-campaign-design" class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Product Name</th>
+                                    <th>Design</th>
+                                    <th>Base code</th>
+                                    <th>Sale price</th>
+                                    <th>Sale expected</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                
+                                </tbody>
+                            </table>
+                            <div class="data-loading" id="tb-campaign-design-loader"><span style="margin: auto;"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

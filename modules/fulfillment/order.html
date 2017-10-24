@@ -1,0 +1,169 @@
+<!-- Left menu -->
+{include file="$rootpath/modules/fulfillment/menu.html" module='order'}
+
+<div class="main-content">
+    <div class="content-header" style="margin-bottom: 15px">
+        <span class="heading-content-label">Order review</span>
+        <div class="content-option">
+            <ul class="nav navbar-nav">
+                <li class="list-item"><span>Show:</span></li>
+                <li class="list-item">
+                    <select class="form-control select-box" id="option-date">
+                        <option value="0">Today</option>
+                        <option value="-1">Yesterday</option>
+                        <option value="-6" selected="selected">Last 7 days</option>
+                        <option value="-27">Last 28 days</option>
+                        <option value="customize" iclass="ion-calendar">Customize</option>
+                    </select>
+                </li>
+                <li class="list-item customize-date" style="display:none;">
+                    <input type="text" class="form-control date-ranger-picker pull-right"
+                           id="option-date-ranger-picker">
+                </li>
+                <li class="list-item">
+                    <button class="btn-form btn-form-blank">
+                        Export data
+                        <i class="ion-ios-download-outline ion-right"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <p class="box-title-char" style="margin-top: 24px;margin-bottom: 0;">Overview</p>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">
+            <div class="status-order" style="background-color: #364760;">
+                <span><img src="{$rooturl}/resource/image/shopping-bag-1.png"/></span>
+                <p id="report-pending"></p>
+                Order pending
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="status-order" style="background-color: #084e8a;">
+                <span><img src="{$rooturl}/resource/image/laptop-1.svg"/></span>
+                <p id="report-processing"></p>
+                Processing
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="status-order" style="background-color: #1498ea;">
+                <span><img src="{$rooturl}/resource/image/laptop.png"/></span>
+                <p id="report-confirm"></p>
+                Order confirm
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="status-order" style="background-color: #d33131;">
+                <span><img src="{$rooturl}/resource/image/transfer-3.png"/></span>
+                <p id="report-fail"></p>
+                Fail
+            </div>
+        </div>
+    </div>
+    <div id="dataload" class="content-body no-border form-inline">
+        <div class="row">
+            <div class="col-sm-4">
+                <!--<button class="btn-form btn-form-blank" id="btn-action">
+                    Action
+                    <i class="ion-chevron-down"></i>
+                </button>-->
+                <button class="btn-form btn-form-blank" id="btn-refresh">
+                    <i class="ion-refresh"></i>
+                    Refresh
+                </button>
+            </div>
+            <div class="col-sm-8 toolbar-search">
+                <div class="form-group">
+                    <label for="sel-state">Filter by </label>
+                    <select style="min-width: 80px;width: auto;" class="form-control select-box" id="sel-state">
+                        <option value="">All</option>
+                        <option value="created">Order pending</option>
+                        <option value="processing">Processing</option>
+                        <option value="placed">Order confirm</option>
+                        <option value="fail">Fail</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sel-user">User id </label>
+                    <select style="min-width: 120px" id="sel-user"></select>
+                </div>
+                <div class="form-group">
+                    <label for="search-text">Search </label>
+                    <input type="text" class="form-control" id="search-text" placeholder="Search text">
+                </div>
+                <div class="dropdown dropdown-setting">
+                    <a class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="{$rooturl}resource/image/icons.png"></img>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <p>Show columns</p>
+                            <div id="chk-col-order" class="form-group">
+                                <div class="checkbox icheck checkbox-warning">
+                                    <input type="checkbox" id="lb-chk-col-order-1" value="quantity" checked>
+                                    <label for="lb-chk-col-order-1">
+                                        Quantity
+                                    </label>
+                                </div>
+                                <div class="checkbox icheck checkbox-warning">
+                                    <input type="checkbox" id="lb-chk-col-order-2" value="amount" checked>
+                                    <label for="lb-chk-col-order-2">
+                                        Amount
+                                    </label>
+                                </div>
+                                <div class="checkbox icheck checkbox-warning">
+                                    <input type="checkbox" id="lb-chk-col-order-3" value="order-date" checked>
+                                    <label for="lb-chk-col-order-3">
+                                        Order date
+                                    </label>
+                                </div>
+                                <div class="checkbox icheck checkbox-warning">
+                                    <input type="checkbox" id="lb-chk-col-order-4" value="update" checked>
+                                    <label for="lb-chk-col-order-4">
+                                        Update
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <button type="button" class="btn btn-form" id="btn-order-apply">
+                                    Apply
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <table id="tb-form" class="table data-table table-hover">
+            <thead></thead>
+            <tbody></tbody>
+        </table>
+        <div class="toolbar-table form-inline text-right">
+            <div class="form-group sel-row">
+                <label for="sel-row-of-page">Show rows:</label>
+                <select style="min-width: 80px;" class="form-control select-box" id="sel-row-of-page">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="num-page">Go to:</label>
+                <input type="number" class="form-control" id="num-page" min="1" max="1" value="1">
+            </div>
+            <div class="form-group">
+                <label for="num-page">of </label>
+                <label class="total-page">1</label>
+            </div>
+            <div class="pull-right">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-sm toolbar-btn toolbar-btn-pre"><i
+                            class="fa fa-chevron-left"></i></button>
+                    <button type="button" class="btn btn-default btn-sm toolbar-btn toolbar-btn-next"><i
+                            class="fa fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

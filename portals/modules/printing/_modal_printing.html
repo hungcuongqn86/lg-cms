@@ -1,0 +1,229 @@
+<!-- jQuery 2.2.3 -->
+<script src="{$rooturl}resource/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- DataTables -->
+<script src="{$rooturl}resource/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="{$rooturl}resource/plugins/datatables/dataTables.bootstrap.js?v=1"></script>
+<script src="{$rooturl}portals/modules/printing/_modal_printing.js?v=9"></script>
+
+<div class="modal modal-printing" id="modal-printing">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="loader" id="modal-printing-loader"></div>
+            <div class="modal-header" style="border:0">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+                <span class="modal-title"><span id="modal-printing-name"></span></span>
+            </div>
+            <div class="modal-body">
+                <div class="content-tab">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#printing-preview" role="tab" data-toggle="tab">
+                                <i class="ion-tshirt"></i>
+                                <span>Preview</span>
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#printing-design" role="tab" data-toggle="tab">
+                                <i class="ion-easel"></i>
+                                <span>Design</span>
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#printing-shipping" role="tab" data-toggle="tab">
+                                <i class="ion-android-car"></i>
+                                <span>Shipping</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="printing-preview">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="clearfix"></div>
+                                    <p class="col-xs-6 text-style-2" style="line-height:40px">State</p>
+                                    <p class="col-xs-6 text-style-2 text-value text-right" id="modal-printing-state" style="line-height:40px;display:none;"></p>
+                                    <select class="col-xs-6 select-box" id="modal-printing-state-option" style="display:none;">
+                                        <option value="printing">Printing</option>
+                                        <option value="printed">Printed</option>
+                                    </select>
+                                    <div class="clearfix"></div>
+                                    <p class="col-xs-6 text-style-2">Size</p>
+                                    <p class="col-xs-6 text-style-2 text-value text-right" id="modal-printing-size"></p>
+                                    <div class="clearfix"></div>
+                                    <p class="col-xs-6 text-style-2">Color</p>
+                                    <p class="col-xs-6 text-style-2 text-value text-right" id="modal-printing-color"></p>
+                                    <div class="clearfix"></div>
+                                    <p class="col-xs-6 text-style-2">Quantity</p>
+                                    <p class="col-xs-6 text-style-2 text-value text-right" id="modal-printing-quantity"></p>
+                                    <div class="clearfix"></div>
+                                    <p class="col-xs-6 text-style-2 accept-form" style="display:none">Info</p>
+                                    <div class="form-group col-xs-12 accept-form" style="display:none">
+                                        <textarea class="form-control text-area" rows="3" id="txt-form-info-s"></textarea>
+                                    </div>
+                                    <div class="form-group col-xs-12 text-right accept-form" style="display:none">
+                                        <button type="button" class="btn-form" id="btn-accept-s" style="width:90px">
+                                            <i class="ion-checkmark"></i>Accept
+                                        </button>
+                                        <button type="button" class="btn-form btn-form-red" id="btn-deny-s" style="width:90px">
+                                            <i class="ion-ion-close"></i>Deny
+                                        </button>
+                                    </div>
+                                    <div class="form-group col-xs-12 text-right" id="modal-form-btn-save-state" style="display:none">
+                                        <button type="button" class="btn-form" id="modal-btn-save-state">
+                                            Save
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <img class="img-responsive" id="modal-printing-img-1"/>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <img class="img-responsive" id="modal-printing-img-2"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="printing-design">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row" id="printing-design-front">
+                                    <div class="clearfix"></div>
+                                    <p class="col-xs-6 text-style-2">Front width</p>
+                                    <p class="col-xs-6 text-style-2 text-value text-right" id="modal-printing-front-width"></p>
+                                    <div class="clearfix"></div>
+                                    <p class="col-xs-6 text-style-2">Front height</p>
+                                    <p class="col-xs-6 text-style-2 text-value text-right" id="modal-printing-front-height"></p>
+                                    <div class="clearfix"></div>
+                                    <p class="col-xs-6 text-style-2">Printable front top</p>
+                                    <p class="col-xs-6 text-style-2 text-value text-right" id="modal-printable-front-top"></p>
+                                    <div class="clearfix"></div>
+                                    <p class="col-xs-6 text-style-2">Printable front left</p>
+                                    <p class="col-xs-6 text-style-2 text-value text-right" id="modal-printable-front-left"></p>
+                                    <div class="clearfix"></div>
+                                    <p class="col-xs-6 text-style-2">Printable front width</p>
+                                    <p class="col-xs-6 text-style-2 text-value text-right" id="modal-printable-front-width"></p>
+                                    <div class="clearfix"></div>
+                                    <p class="col-xs-6 text-style-2">Printable front height</p>
+                                    <p class="col-xs-6 text-style-2 text-value text-right" id="modal-printable-front-height"></p>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="row" id="printing-design-back">
+                                    <div class="clearfix"></div>
+                                    <p class="col-xs-6 text-style-2">Back width</p>
+                                    <p class="col-xs-6 text-style-2 text-value text-right" id="modal-printing-back-width"></p>
+                                    <div class="clearfix"></div>
+                                    <p class="col-xs-6 text-style-2">Back height</p>
+                                    <p class="col-xs-6 text-style-2 text-value text-right" id="modal-printing-back-height"></p>
+                                    <div class="clearfix"></div>
+                                    <p class="col-xs-6 text-style-2">Printable back top</p>
+                                    <p class="col-xs-6 text-style-2 text-value text-right" id="modal-printable-back-top"></p>
+                                    <div class="clearfix"></div>
+                                    <p class="col-xs-6 text-style-2">Printable back left</p>
+                                    <p class="col-xs-6 text-style-2 text-value text-right" id="modal-printable-back-left"></p>
+                                    <div class="clearfix"></div>
+                                    <p class="col-xs-6 text-style-2">Printable back width</p>
+                                    <p class="col-xs-6 text-style-2 text-value text-right" id="modal-printable-back-width"></p>
+                                    <div class="clearfix"></div>
+                                    <p class="col-xs-6 text-style-2">Printable back height</p>
+                                    <p class="col-xs-6 text-style-2 text-value text-right" id="modal-printable-back-height"></p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-xs-6" id="div-modal-printing-design-img-1" style="display:none">
+                                        <div style="background-color: #ebf5fa">
+                                            <img class="img-responsive" id="modal-printing-design-img-1"/>
+                                        </div>
+                                        <div class="text-right" style="margin-top:10px">
+                                            <a id="a-design-front">
+                                                <button type="button" class="btn-form" >
+                                                    <i class="ion-ios-cloud-download"></i> PNG
+                                                </button>
+                                            </a>
+                                            
+                                            <a id="a-design-front-eps">
+                                                <button type="button" class="btn-form btn-form-green" >
+                                                    <i class="ion-ios-download"></i> EPS
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6" id="div-modal-printing-design-img-2" style="display:none">
+                                        <div style="background-color: #ebf5fa">
+                                            <img class="img-responsive" id="modal-printing-design-img-2"/>
+                                        </div>
+                                        <div class="text-right" style="margin-top:10px;">
+                                            <a id="a-design-back">
+                                                <button type="button" class="btn-form" >
+                                                    <i class="ion-ios-cloud-download"></i> PNG
+                                                </button>
+                                            </a>
+                                            
+                                            <a id="a-design-back-eps">
+                                                <button type="button" class="btn-form btn-form-green" >
+                                                    <i class="ion-ios-download"></i> EPS
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="printing-shipping">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="clearfix"></div>
+                                    <p class="col-xs-6 text-style-2">Name</p>
+                                    <p class="col-xs-6 text-style-2 text-value text-right" id="modal-printing-shipping-name"></p>
+                                    <div class="clearfix"></div>
+                                    <p class="col-xs-6 text-style-2">Email</p>
+                                    <p class="col-xs-6 text-style-2 text-value text-right" id="modal-printing-shipping-email"></p>
+                                    <div class="clearfix"></div>
+                                    <p class="col-xs-6 text-style-2">Phone</p>
+                                    <p class="col-xs-6 text-style-2 text-value text-right" id="modal-printing-shipping-phone"></p>
+                                    <div class="clearfix"></div>
+                                    <p class="col-xs-6 text-style-2">Line 1</p>
+                                    <p class="col-xs-6 text-style-2 text-value text-right" id="modal-printing-shipping-line1"></p>
+                                    <div class="clearfix"></div>
+                                    <p class="col-xs-6 text-style-2">Line 2</p>
+                                    <p class="col-xs-6 text-style-2 text-value text-right" id="modal-printing-shipping-line2"></p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="clearfix"></div>
+                                    <p class="col-xs-6 text-style-2">City</p>
+                                    <p class="col-xs-6 text-style-2 text-value text-right" id="modal-printing-shipping-city"></p>
+                                    <div class="clearfix"></div>
+                                    <p class="col-xs-6 text-style-2">State</p>
+                                    <p class="col-xs-6 text-style-2 text-value text-right" id="modal-printing-shipping-state"></p>
+                                    <div class="clearfix"></div>
+                                    <p class="col-xs-6 text-style-2">Postal code</p>
+                                    <p class="col-xs-6 text-style-2 text-value text-right" id="modal-printing-shipping-postalcode"></p>
+                                    <div class="clearfix"></div>
+                                    <p class="col-xs-6 text-style-2">Country code</p>
+                                    <p class="col-xs-6 text-style-2 text-value text-right" id="modal-printing-shipping-country"></p>
+                                    <div class="clearfix"></div>
+                                    <p class="col-xs-6 text-style-2">Ship as gift</p>
+                                    <p class="col-xs-6 text-style-2 text-value text-right" id="modal-printing-shipping-as-gift"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

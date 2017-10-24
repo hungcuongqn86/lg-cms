@@ -1,0 +1,52 @@
+<div class="left-menu">
+    <ul class="nav nav-menu">
+        <li {if $module==='dashboard'}class="active"{/if}>
+            <a href="{$rooturl}index.php?module=fulfillment-dashboard">
+                <img src="{$rooturl}/resource/image/bar-chart.png"/>
+                <span class="hidden-xs">Dashboard</span>
+            </a>
+        </li>
+        <li {if $module==='order'}class="active"{/if}>
+            <a href="{$rooturl}index.php?module=fulfillment-order">
+                <img src="{$rooturl}/resource/image/laptop-2.png"/>
+                <span class="hidden-xs">Order reviews</span>
+            </a>
+        </li>
+        <li {if $module==='subprinting'}class="active"{/if}>
+            <a href="{$rooturl}index.php?module=fulfillment-subprinting">
+                <img src="{$rooturl}/resource/image/printer.png"/>
+                <span class="hidden-xs">Submit for printing</span>
+            </a>
+        </li>
+        <li {if $module==='printmanagement'}class="active"{/if}>
+            <a href="{$rooturl}index.php?module=fulfillment-printmanagement">
+                <img src="{$rooturl}/resource/image/printer.png"/>
+                <span class="hidden-xs">Print management</span>
+            </a>
+        </li>
+        <li {if $module==='subshipping'}class="active"{/if}>
+            <a href="{$rooturl}index.php?module=fulfillment-subshipping">
+                <img src="{$rooturl}/resource/image/shopping-bag.png"/>
+                <span class="hidden-xs">Submit for shipping</span>
+            </a>
+        </li>
+        <li {if $module==='history'}class="active"{/if}>
+            <a href="{$rooturl}index.php?module=fulfillment-history">
+                <img src="{$rooturl}/resource/image/transfer-1.png"/>
+                <span class="hidden-xs">Fulfillment history</span>
+            </a>
+        </li>
+        <li {if $module==='shippingstats'}class="active"{/if}>
+            <a href="{$rooturl}index.php?module=fulfillment-shippingstats">
+                <img src="{$rooturl}/resource/image/like.png"/>
+                <span class="hidden-xs">Shipping stats</span>
+            </a>
+        </li>
+        <li {if $module==='printingstats'}class="active"{/if}>
+            <a href="{$rooturl}index.php?module=fulfillment-printingstats">
+                <img src="{$rooturl}/resource/image/like-1.png"/>
+                <span class="hidden-xs">Printing stats</span>
+            </a>
+        </li>
+    </ul>
+</div>

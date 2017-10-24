@@ -1,0 +1,94 @@
+<!-- Left menu -->
+{include file="$rootpath/modules/setup/menu.html" module='log'}
+
+<div class="main-content">
+    <div class="content-header">
+        <span class="heading-content-label">Log</span>
+        <div class="content-option">
+            <ul class="nav navbar-nav">
+                <li class="list-item"><span>Show:</span></li>
+                <li class="list-item">
+                    <select class="form-control select-box" id="option-date">
+                        <option value="today">Today</option>
+                        <option value="yesterday">Yesterday</option>
+                        <option value="last7days" selected="selected">Last 7 days</option>
+                        <option value="last28days">Last 28 days</option>
+                        <option value="customize" iclass="ion-calendar">Customize</option>
+                    </select>
+                </li>
+                <li class="list-item customize-date" style="display:none;">
+                    <input type="text" class="form-control date-ranger-picker pull-right" id="option-date-ranger-picker">
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="overview"></div>
+    <div class="content-body no-border">
+        <button class="btn-form btn-form-blank" id="btn-refresh">
+            <i class="ion-refresh"></i>
+            Refresh
+        </button>
+        <div class="dropdown dropdown-setting">
+            <a href="javascript:(void)" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="{$rooturl}resource/image/icons.png" style="margin-top: 20px;"></img>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <form class="form" role="form">
+                        <p>Show columns</p>
+                        <div class="form-group">
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-tb" id="lb-chk-col-tb-1" colnumb="1" checked>
+                                <label for="lb-chk-col-tb-1">
+                                    User
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-tb" id="lb-chk-col-tb-2" colnumb="2" checked>
+                                <label for="lb-chk-col-tb-2">
+                                    IP
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-tb" id="lb-chk-col-tb-4" colnumb="4" checked>
+                                <label for="lb-chk-col-tb-4">
+                                    URI
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-tb" id="lb-chk-col-tb-5" colnumb="5" checked>
+                                <label for="lb-chk-col-tb-5">
+                                    Description
+                                </label>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <button type="button" class="btn btn-form" id="btn-form-apply">
+                                Apply
+                            </button>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <div style="position:relative;margin-top: 20px">
+            <table id="tb-form" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>User</th>
+                    <th>IP</th>
+                    <th>Action</th>
+                    <th>URI</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                </tbody>
+            </table>
+            <div class="data-loading" id="tb-form-loader"><span style="margin: auto;"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i></span></div>
+        </div>
+        
+    </div>
+</div>

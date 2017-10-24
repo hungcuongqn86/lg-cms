@@ -1,0 +1,102 @@
+<!-- Left menu -->
+{include file="$rootpath/modules/affiliates/menu.html" module='list'}
+
+<div class="main-content">
+    <div class="content-header">
+        <span class="heading-content-label">Affiliates list</span>
+        <div class="content-option">
+            <ul class="nav navbar-nav">
+                <li class="list-item"><span>Show:</span></li>
+                <li class="list-item">
+                    <select class="form-control select-box" id="option-date">
+                        <option value="today">Today</option>
+                        <option value="yesterday">Yesterday</option>
+                        <option value="last7days" selected="selected">Last 7 days</option>
+                        <option value="last28days">Last 28 days</option>
+                        <option value="customize" iclass="ion-calendar">Customize</option>
+                    </select>
+                </li>
+                <li class="list-item customize-date" style="display:none;">
+                    <input type="text" class="form-control date-ranger-picker pull-right" id="option-date-ranger-picker">
+                </li>
+                <li class="list-item">
+                    <button class="btn-form btn-form-blank">
+                        Export data
+                        <i class="ion-ios-download-outline ion-right"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="overview"></div>
+    <div class="content-body no-border">
+        <button class="btn-form btn-form-blank" id="btn-refresh">
+            <i class="ion-refresh"></i>
+            Refresh
+        </button>
+        <div class="dropdown dropdown-setting">
+            <a href="javascript:(void)" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="{$rooturl}resource/image/icons.png" style="margin-top: 20px;"></img>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <form class="form" role="form">
+                        <p>Show columns</p>
+                        <div class="form-group">
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-affiliate" id="lb-chk-col-affiliate-5" colnumb="5" checked>
+                                <label for="lb-chk-col-affiliate-5">
+                                    Country
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-affiliate" id="lb-chk-col-affiliate-6" colnumb="6" checked>
+                                <label for="lb-chk-col-affiliate-6">
+                                    Conv. Rate
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-affiliate" id="lb-chk-col-affiliate-7" colnumb="7" checked>
+                                <label for="lb-chk-col-affiliate-7">
+                                    Join date
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-affiliate" id="lb-chk-col-affiliate-8" colnumb="8" checked>
+                                <label for="lb-chk-col-affiliate-8">
+                                    Status
+                                </label>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <button type="button" class="btn btn-form" id="btn-affiliate-apply">
+                                Apply
+                            </button>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <div style="position:relative;margin-top: 20px">
+            <table id="tb-affiliates" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>Affiliate</th>
+                    <th>Total campaigns</th>
+                    <th>Total sales</th>
+                    <th>Revenue</th>
+                    <th>Total traffic</th>
+                    <th>Country</th>
+                    <th>Conv. Rate</th>
+                    <th>Join date</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                </tbody>
+            </table>
+            <div class="data-loading" id="tb-affiliates-loader"><span style="margin: auto;"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i></span></div>
+        </div>
+    </div>
+</div>

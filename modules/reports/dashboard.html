@@ -1,0 +1,338 @@
+<!-- Left menu -->
+{include file="$rootpath/modules/reports/menu.html" module='dashboard'}
+
+<div class="main-content">
+    <div class="content-header">
+        <span class="heading-content-label">Dashboard</span>
+        <div class="content-option">
+            <ul class="nav navbar-nav">
+                <li class="list-item"><span>Show:</span></li>
+                <li class="list-item">
+                    <select class="form-control select-box" id="option-date">
+                        <option value="today">Today</option>
+                        <option value="yesterday">Yesterday</option>
+                        <option value="last7days" selected="selected">Last 7 days</option>
+                        <option value="last28days">Last 28 days</option>
+                        <option value="customize" iclass="ion-calendar">Customize</option>
+                    </select>
+                </li>
+                <li class="list-item customize-date" style="display:none;">
+                    <input type="text" class="form-control date-ranger-picker pull-right" id="option-date-ranger-picker">
+                </li>
+                <li class="list-item">
+                    <button class="btn-form btn-form-blank">
+                        Export data
+                        <i class="ion-ios-download-outline ion-right"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="content-box">
+        <p class="content-body-label">Overview</p>
+        <div id="overview"></div>
+    </div>
+    <div class="content-body">
+        <p class="content-body-label"><a href="{$rooturl}index.php?module=reports-affiliates">Top Affiliates</a></p>
+        <div class="dropdown dropdown-setting">
+            <a href="javascript:(void)" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="{$rooturl}resource/image/icons.png"></img>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <form class="form" role="form">
+                        <p>Show columns</p>
+                        <div class="form-group">
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-affiliate" id="lb-chk-col-affiliate-5" colnumb="5" checked>
+                                <label for="lb-chk-col-affiliate-5">
+                                    Country
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-affiliate" id="lb-chk-col-affiliate-6" colnumb="6" checked>
+                                <label for="lb-chk-col-affiliate-6">
+                                    Conv. Rate
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-affiliate" id="lb-chk-col-affiliate-7" colnumb="7" checked>
+                                <label for="lb-chk-col-affiliate-7">
+                                    Join date
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-affiliate" id="lb-chk-col-affiliate-8" colnumb="8" checked>
+                                <label for="lb-chk-col-affiliate-8">
+                                    Status
+                                </label>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <button type="button" class="btn btn-form" id="btn-affiliate-apply">
+                                Apply
+                            </button>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <table id="tb-top-affiliates" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>Affiliate</th>
+                <th>Total campaigns</th>
+                <th>Total sales</th>
+                <th>Revenue</th>
+                <th>Total traffic</th>
+                <th>Country</th>
+                <th>Conv. Rate</th>
+                <th>Join date</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            
+            </tbody>
+        </table>
+    </div>
+    <div class="content-body">
+        <p class="content-body-label"><a href="{$rooturl}index.php?module=reports-campaign">Top Campaigns</a></p>
+        <div class="dropdown dropdown-setting">
+            <a href="javascript:(void)" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="{$rooturl}resource/image/icons.png"></img>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <form class="form" role="form">
+                        <p>Show columns</p>
+                        <div class="form-group">
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-campaign" id="lb-chk-col-campaign-3" colnumb="3" checked>
+                                <label for="lb-chk-col-campaign-3">
+                                    Design
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-campaign" id="lb-chk-col-campaign-5" colnumb="5" checked>
+                                <label for="lb-chk-col-campaign-5">
+                                    Unit
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-campaign" id="lb-chk-col-campaign-7" colnumb="7" checked>
+                                <label for="lb-chk-col-campaign-7">
+                                    Conv. Rate
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-campaign" id="lb-chk-col-campaign-8" colnumb="8" checked>
+                                <label for="lb-chk-col-campaign-8">
+                                    Start Date
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-campaign" id="lb-chk-col-campaign-9" colnumb="9" checked>
+                                <label for="lb-chk-col-campaign-9">
+                                    End Date
+                                </label>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <button type="button" class="btn btn-form" id="btn-campaign-apply">
+                                Apply
+                            </button>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <table id="tb-top-campaigns" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>Campaign Name</th>
+                <th>ID Number</th>
+                <th>Affiliates</th>
+                <th>Design</th>
+                <th>Order</th>
+                <th>Units</th>
+                <th>Visits</th>
+                <th>Conv. Rate</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="content-box">
+                <p class="content-body-label"><a href="{$rooturl}index.php?module=reports-traffic">Traffic overview</a></p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div id="world-map" style="height: 250px; width: 100%;"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="traffic-overview-progress"></div>
+                        <div class="progress-group">
+                            <div class="col-xs-3"></div>
+                            <div class="col-xs-9">
+                                    <div class="col-xs-2 text-center">
+                                            0
+                                        </div>
+                                        <div class="col-xs-2 text-center">
+                                            20%
+                                        </div>
+                                        <div class="col-xs-2 text-center">
+                                            40%
+                                        </div>
+                                        <div class="col-xs-2 text-center">
+                                            60%
+                                        </div>
+                                        <div class="col-xs-2 text-center">
+                                            80%
+                                        </div>
+                                        <div class="col-xs-2 text-center">
+                                            100%
+                                        </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="content-box">
+                <p class="content-body-label">Campaign statics</p>
+                <p class="statics-label">Total sales</p>
+                <p class="statics-numb-label" id="campaign-statics"></p>
+                <div id="campaign-statics-chart" style="width:100%;height:193px;"></div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="content-box">
+                <p class="content-body-label">Revenue statics</p>
+                <p class="statics-label">Revenue</p>
+                <p class="statics-numb-label" id="revenue-statics"></p>
+                <div id="revenue-statics-chart" style="width:100%;height:193px;"></div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="content-body">
+        <div class="content-tab">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#recent-order" role="tab" data-toggle="tab">
+                        <i class="ion-ios-cart"></i>
+                        <span>Recent order</span>
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="#best-seller" role="tab" data-toggle="tab">
+                        <i class="ion-arrow-graph-up-right"></i>
+                        <span>Best sellers</span>
+                    </a>
+                </li>
+                <li role="presentation">
+                        <a href="#less-seller" role="tab" data-toggle="tab">
+                            <i class="ion-arrow-graph-down-right"></i>
+                            <span>Less sellers</span>
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#most-viewed" role="tab" data-toggle="tab">
+                            <i class="ion-eye"></i>
+                            <span>Most viewed</span>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="recent-order">
+                    <div class="dropdown dropdown-setting">
+                        <a href="javascript:(void)" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="{$rooturl}resource/image/icons.png"></img>
+                        </a>
+                    </div>
+                <table id="tb-recent-order" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>Order date</th>
+                        <th>Customers</th>
+                        <th>Quantity</th>
+                        <th>Amount</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    
+                    </tbody>
+                </table>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="best-seller">
+                <div class="dropdown dropdown-setting">
+                    <a href="javascript:(void)" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="{$rooturl}resource/image/icons.png"></img>
+                    </a>
+                </div>
+                <table id="tb-best-celler" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>Order date</th>
+                        <th>Customers</th>
+                        <th>Quantity</th>
+                        <th>Amount</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    
+                    </tbody>
+                </table>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="less-seller">
+                <div class="dropdown dropdown-setting">
+                    <a href="javascript:(void)" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="{$rooturl}resource/image/icons.png"></img>
+                    </a>
+                </div>
+                <table id="tb-less-celler" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>Order date</th>
+                        <th>Customers</th>
+                        <th>Quantity</th>
+                        <th>Amount</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    
+                    </tbody>
+                </table>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="most-viewed">
+                <div class="dropdown dropdown-setting">
+                    <a href="javascript:(void)" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="{$rooturl}resource/image/icons.png"></img>
+                    </a>
+                </div>
+                <table id="tb-most-viewed" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Campaign name</th>
+                        <th>Viewed</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

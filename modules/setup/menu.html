@@ -1,0 +1,81 @@
+<div class="left-menu">
+    <ul class="nav nav-menu">
+        <li {if $module == 'preference'}class="active"{/if}>
+            <a href="{$rooturl}index.php?module=setup-preference">
+                <img src="{$rooturl}/resource/image/settings-3.png"/>
+                <span class="hidden-xs">Preference</span>
+            </a>
+        </li>
+        <li {if $module == 'category'}class="active"{/if}>
+            <a href="{$rooturl}index.php?module=setup-category">
+                <img src="{$rooturl}/resource/image/settings-3.png"/>
+                <span class="hidden-xs">Category</span>
+            </a>
+        </li>
+        <li {if $module == 'domain'}class="active"{/if}>
+            <a href="{$rooturl}index.php?module=setup-domain">
+                <img src="{$rooturl}/resource/image/settings-3.png"/>
+                <span class="hidden-xs">Domain</span>
+            </a>
+        </li>
+        <li {if $module == 'log'}class="active"{/if}>
+            <a href="{$rooturl}index.php?module=setup-log">
+                <img src="{$rooturl}/resource/image/settings-3.png"/>
+                <span class="hidden-xs">Log</span>
+            </a>
+        </li>
+        <li {if $module == 'country'}class="active"{/if}>
+            <a href="{$rooturl}index.php?module=setup-country">
+                <img src="{$rooturl}/resource/image/settings-3.png"/>
+                <span class="hidden-xs">Country</span>
+            </a>
+        </li>
+        <li {if $module == 'state'}class="active"{/if}>
+            <a href="{$rooturl}index.php?module=setup-state">
+                <img src="{$rooturl}/resource/image/settings-3.png"/>
+                <span class="hidden-xs">State</span>
+            </a>
+        </li>
+        <li {if $module == 'language'}class="active"{/if}>
+            <a href="{$rooturl}index.php?module=setup-language">
+                <img src="{$rooturl}/resource/image/settings-3.png"/>
+                <span class="hidden-xs">Language</span>
+            </a>
+        </li>
+        <li {if $module == 'timezone'}class="active"{/if}>
+            <a href="{$rooturl}index.php?module=setup-timezone">
+                <img src="{$rooturl}/resource/image/settings-3.png"/>
+                <span class="hidden-xs">Timezone</span>
+            </a>
+        </li>
+        <li {if $module == 'module' || $module == 'group' || $module == 'user'}class="active"{/if}>
+            <a href="javascript:void(0)">
+                <img src="{$rooturl}/resource/image/settings-3.png"/>
+                <span class="hidden-xs">User</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li {if $module == 'module'}class="active"{/if}>
+                    <a href="{$rooturl}index.php?module=setup-user-module">
+                        <i class="ion-ios-circle-filled"></i>
+                        <span class="hidden-xs">Module</span>
+                    </a>
+                </li>
+                <li {if $module == 'group'}class="active"{/if}>
+                    <a href="{$rooturl}index.php?module=setup-user-group">
+                        <i class="ion-ios-circle-filled"></i>
+                        <span class="hidden-xs">Group</span>
+                    </a>
+                </li>
+                <li {if $module == 'user'}class="active"{/if}>
+                    <a href="{$rooturl}index.php?module=setup-user">
+                        <i class="ion-ios-circle-filled"></i>
+                        <span class="hidden-xs">User</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

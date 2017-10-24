@@ -1,0 +1,40 @@
+<div class="left-menu">
+    <ul class="nav nav-menu">
+        <li {if $module == 'base-group'}class="active"{/if}>
+            <a href="{$rooturl}index.php?module=inventory-base-group">
+                <img src="{$rooturl}/resource/image/list.png"/>
+                <span class="hidden-xs">Base group</span>
+            </a>
+        </li>
+        <li {if $module == 'base-type'}class="active"{/if}>
+            <a href="{$rooturl}index.php?module=inventory-base-type">
+                <img src="{$rooturl}/resource/image/list.png"/>
+                <span class="hidden-xs">Base type</span>
+            </a>
+        </li>
+        <li {if $module == 'base-color'}class="active"{/if}>
+            <a href="{$rooturl}index.php?module=inventory-base-color">
+                <img src="{$rooturl}/resource/image/list.png"/>
+                <span class="hidden-xs">Base color</span>
+            </a>
+        </li>
+        <li {if $module == 'base-size'}class="active"{/if}>
+            <a href="{$rooturl}index.php?module=inventory-base-size">
+                <img src="{$rooturl}/resource/image/list.png"/>
+                <span class="hidden-xs">Base size</span>
+            </a>
+        </li>
+        <li {if $module == 'base'}class="active"{/if}>
+            <a href="{$rooturl}index.php?module=inventory-base">
+                <img src="{$rooturl}/resource/image/list.png"/>
+                <span class="hidden-xs">Base</span>
+            </a>
+        </li>
+        <li {if $module == 'shipping-fee'}class="active"{/if}>
+            <a href="{$rooturl}index.php?module=inventory-shipping-fee">
+                <img src="{$rooturl}/resource/image/list.png"/>
+                <span class="hidden-xs">Shipping fee</span>
+            </a>
+        </li>
+    </ul>
+</div>

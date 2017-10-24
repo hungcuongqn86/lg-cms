@@ -1,0 +1,147 @@
+<!-- Left menu -->
+{include file="$rootpath/modules/reports/menu.html" module='traffic'}
+
+<div class="main-content">
+    <div class="content-header">
+        <span class="heading-content-label">Traffic source reports</span>
+        <div class="content-option">
+            <ul class="nav navbar-nav">
+                <li class="list-item"><span>Show:</span></li>
+                <li class="list-item">
+                    <select class="form-control select-box" id="option-date">
+                        <option value="today">Today</option>
+                        <option value="yesterday">Yesterday</option>
+                        <option value="last7days" selected="selected">Last 7 days</option>
+                        <option value="last28days">Last 28 days</option>
+                        <option value="customize" iclass="ion-calendar">Customize</option>
+                    </select>
+                </li>
+                <li class="list-item customize-date" style="display:none;">
+                    <input type="text" class="form-control date-ranger-picker pull-right" id="option-date-ranger-picker">
+                </li>
+                <li class="list-item">
+                    <button class="btn-form btn-form-blank">
+                        Export data
+                        <i class="ion-ios-download-outline ion-right"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="traffic-map" style="width:100%;height:500px;"></div>
+    <div class="content-body no-border">
+        <p class="content-body-label">Traffic source</p>    
+        <button class="btn-form btn-form-blank" id="btn-refresh">
+            <i class="ion-refresh"></i>
+            Refresh
+        </button>
+        <div class="dropdown dropdown-setting">
+            <a href="javascript:(void)" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="{$rooturl}resource/image/icons.png" style="margin-top:20px"></img>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <form class="form" role="form">
+                        <p>Show columns</p>
+                        <div class="form-group">
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-source" id="lb-chk-col-source-6" colnumb="6" checked>
+                                <label for="lb-chk-col-source-6">
+                                    Conv. rate
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-source" id="lb-chk-col-source-7" colnumb="7" checked>
+                                <label for="lb-chk-col-source-7">
+                                    Conv. value
+                                </label>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <button type="button" class="btn btn-form" id="btn-source-apply">
+                                Apply
+                            </button>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <div style="position: relative;margin-top: 20px">
+            <table id="tb-traffic" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>Number</th>
+                    <th>Date range</th>
+                    <th>Traffic source</th>
+                    <th>Traffic medium</th>
+                    <th>Total traffic</th>
+                    <th>Total conv.</th>
+                    <th>Conv. rate</th>
+                    <th>Conv. value</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                </tbody>
+            </table>
+            <div class="data-loading" id="tb-traffic-loader"><span style="margin: auto;"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i></span></div>
+        </div>
+    </div>
+    <div class="content-body no-border">
+        <p class="content-body-label">Location</p>
+        <button class="btn-form btn-form-blank" id="btn-refresh-2">
+            <i class="ion-refresh"></i>
+            Refresh
+        </button>
+        <div class="dropdown dropdown-setting">
+            <a href="javascript:(void)" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="{$rooturl}resource/image/icons.png" style="margin-top:20px"></img>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <form class="form" role="form">
+                        <p>Show columns</p>
+                        <div class="form-group">
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-location" id="lb-chk-col-location-5" colnumb="5" checked>
+                                <label for="lb-chk-col-location-5">
+                                    Conv. rate
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-location" id="lb-chk-col-location-6" colnumb="6" checked>
+                                <label for="lb-chk-col-location-6">
+                                    Conv. value
+                                </label>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <button type="button" class="btn btn-form" id="btn-location-apply">
+                                Apply
+                            </button>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <div style="position: relative;margin-top: 20px">
+            <table id="tb-traffic-location" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>Number</th>
+                    <th>Date range</th>
+                    <th>Country</th>
+                    <th>Total traffic</th>
+                    <th>Total conv.</th>
+                    <th>Conv. rate</th>
+                    <th>Conv. value</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                </tbody>
+            </table>
+            <div class="data-loading" id="tb-traffic-location-loader"><span style="margin: auto;"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i></span></div>
+        </div>
+    </div>
+</div>

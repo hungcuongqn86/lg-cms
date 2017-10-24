@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>BurgerPrints</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="{$rooturl}/resource/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Datatable -->
+    <link rel="stylesheet" href="{$rooturl}/resource/plugins/datatables/dataTables.bootstrap.css?v=3">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="{$rooturl}/resource/plugins/daterangepicker/daterangepicker.css?v=1">
+    <!-- bootstrap datepicker -->
+    <link rel="stylesheet" href="{$rooturl}/resource/bootstrap/css/bootstrap-datetimepicker.min.css">
+    <!-- jvectormap -->
+    <link rel="stylesheet" href="{$rooturl}/resource/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+
+    <link rel="stylesheet" href="{$rooturl}/resource/plugins/slick/slick.min.css">
+    <link rel="stylesheet" href="{$rooturl}/resource/plugins/slick/slick-theme.min.css">
+
+    <link rel="stylesheet" href="{$rooturl}upload/css/uploader.css?v=1">
+
+    <link rel="stylesheet" href="{$rooturl}/resource/plugins/colorpicker/bootstrap-colorpicker.min.css">
+
+    <!-- iCheck -->
+    <link rel="stylesheet" href="{$rooturl}resource/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.min.css?v=1">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{$rooturl}/resource/plugins/select2/select2.css?v=1">
+
+    <link rel="stylesheet" href="{$rooturl}/resource/css/mainstyle.css?v=47">
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- header -->
+        {include file="$rootpath/templates/_header.html" menu=$menu}
+        <!-- Content Wrapper -->
+        <div class="content-wrapper">
+            {if $module == 'reports-dashboard'}
+            {include file="$rootpath/modules/reports/dashboard.html"}
+            {/if}
+            {if $module == 'reports-affiliates'}
+            {include file="$rootpath/modules/reports/affiliates.html"}
+            {/if}
+            {if $module == 'reports-campaign'}
+            {include file="$rootpath/modules/reports/campaign.html"}
+            {/if}
+            {if $module == 'reports-selling'}
+            {include file="$rootpath/modules/reports/selling.html"}
+            {/if}
+            {if $module == 'reports-traffic'}
+            {include file="$rootpath/modules/reports/traffic.html"}
+            {/if}
+
+            {if $module == 'affiliates-list'}
+            {include file="$rootpath/modules/affiliates/list.html"}
+            {/if}
+            {if $module == 'affiliates-pending-approval'}
+            {include file="$rootpath/modules/affiliates/pending_approval.html"}
+            {/if}
+            {if $module == 'affiliates-recent-activity'}
+            {include file="$rootpath/modules/affiliates/recent_activity.html"}
+            {/if}
+
+            {if $module == 'fulfillment-dashboard'}
+            {include file="$rootpath/modules/fulfillment/dashboard.html"}
+            {/if}
+            {if $module == 'fulfillment-order'}
+            {include file="$rootpath/modules/fulfillment/order.html"}
+            {/if}
+            {if $module == 'fulfillment-subprinting'}
+            {include file="$rootpath/modules/fulfillment/subprinting.html"}
+            {/if}
+            {if $module == 'fulfillment-printmanagement'}
+            {include file="$rootpath/modules/fulfillment/printmanagement.html"}
+            {/if}
+            {if $module == 'fulfillment-subshipping'}
+            {include file="$rootpath/modules/fulfillment/subshipping.html"}
+            {/if}
+            {if $module == 'fulfillment-history'}
+            {include file="$rootpath/modules/fulfillment/history.html"}
+            {/if}
+
+            {if $module == 'partner-list'}
+            {include file="$rootpath/modules/partner/partner.html"}
+            {/if}
+
+            {if $module == 'inventory-base-group'}
+            {include file="$rootpath/modules/inventory/base_group.html"}
+            {/if}
+            {if $module == 'inventory-base-type'}
+            {include file="$rootpath/modules/inventory/base_type.html"}
+            {/if}
+            {if $module == 'inventory-base-color'}
+            {include file="$rootpath/modules/inventory/base_color.html"}
+            {/if}
+            {if $module == 'inventory-base-size'}
+            {include file="$rootpath/modules/inventory/base_size.html"}
+            {/if}
+            {if $module == 'inventory-base'}
+            {include file="$rootpath/modules/inventory/base.html"}
+            {/if}
+            {if $module == 'inventory-shipping-fee'}
+            {include file="$rootpath/modules/inventory/shipping_fee.html"}
+            {/if}
+
+            {if $module == 'setup-preference'}
+            {include file="$rootpath/modules/setup/preference.html"}
+            {/if}
+            {if $module == 'setup-category'}
+            {include file="$rootpath/modules/setup/category.html"}
+            {/if}
+            {if $module == 'setup-domain'}
+            {include file="$rootpath/modules/setup/domain.html"}
+            {/if}
+            {if $module == 'setup-log'}
+            {include file="$rootpath/modules/setup/log.html"}
+            {/if}
+            {if $module == 'setup-country'}
+            {include file="$rootpath/modules/setup/country.html"}
+            {/if}
+            {if $module == 'setup-state'}
+            {include file="$rootpath/modules/setup/state.html"}
+            {/if}
+            {if $module == 'setup-language'}
+            {include file="$rootpath/modules/setup/language.html"}
+            {/if}
+            {if $module == 'setup-timezone'}
+            {include file="$rootpath/modules/setup/timezone.html"}
+            {/if}
+            {if $module == 'setup-user-module'}
+            {include file="$rootpath/modules/setup/user_module.html"}
+            {/if}
+            {if $module == 'setup-user-group'}
+            {include file="$rootpath/modules/setup/user_group.html"}
+            {/if}
+            {if $module == 'setup-user'}
+            {include file="$rootpath/modules/setup/user.html"}
+            {/if}
+
+            {include file="$rootpath/templates/_footer.html"}
+        </div>
+        <!-- /.content-wrapper -->
+        <!-- Modal error -->
+        {include file="$rootpath/templates/_modal_error.html"}
+        <!-- Modal affiliate -->
+        {include file="$rootpath/templates/_modal_affiliate.html"}
+        <!-- Modal customer -->
+        {include file="$rootpath/templates/_modal_customer.html"}
+        <!-- Modal campaign -->
+        {include file="$rootpath/templates/_modal_campaign.html"}
+
+        <input type="hidden" id="curr-server-date" value="{$curr_date_value}">
+        <div class="loader" id="form-loader"></div>
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- jQuery 2.2.3 -->
+    <script src="{$rooturl}/resource/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="{$rooturl}/resource/bootstrap/js/bootstrap.min.js"></script>
+    <!-- DataTables -->
+    <script src="{$rooturl}resource/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="{$rooturl}resource/plugins/datatables/dataTables.bootstrap.js?v=1"></script>
+    <!-- bootstrap datepicker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+    <script src="{$rooturl}/resource/bootstrap/js/bootstrap-datetimepicker.min.js"></script>
+    <!-- date-range-picker -->
+    <script src="{$rooturl}/resource/plugins/daterangepicker/daterangepicker.js?v=1"></script>
+    <script src="{$rooturl}resource/js/date.js"></script>
+    <!-- Select2 -->
+    <script src="{$rooturl}/resource/plugins/select2/select2.full.js?v=1"></script>
+    <!-- highcharts -->
+    <script src="{$rooturl}resource/plugins/highcharts/highcharts.js"></script>
+    <script src="{$rooturl}resource/plugins/highcharts/highcharts-more.js"></script>
+    <script src="{$rooturl}resource/plugins/highcharts/solid-gauge.js"></script>
+    <!-- jvectormap -->
+    <script src="{$rooturl}/resource/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="{$rooturl}/resource/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+
+    <script src="{$rooturl}upload/js/dmuploader.min.js"></script>
+    <!-- Color picker -->
+    <script src="{$rooturl}resource/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
+
+    <script src="{$rooturl}resource/js/selectctr.js?v=2"></script>
+    
+    {if $module == 'reports-dashboard'}
+    <script src="{$rooturl}/modules/reports/dashboard.js?v=25"></script>
+    {/if}
+    {if $module == 'reports-affiliates'}
+    <script src="{$rooturl}/modules/reports/affiliates.js?v=29"></script>
+    {/if}
+    {if $module == 'reports-campaign'}
+    <script src="{$rooturl}/modules/reports/campaign.js?v=23"></script>
+    {/if}
+    {if $module == 'reports-selling'}
+    <script src="{$rooturl}/modules/reports/selling.js?v=22"></script>
+    {/if}
+    {if $module == 'reports-traffic'}
+    <script src="{$rooturl}/modules/reports/traffic.js?v=23"></script>
+    {/if}
+
+    {if $module == 'affiliates-list'}
+    <script src="{$rooturl}/modules/affiliates/list.js?v=2"></script>
+    {/if}
+
+    {if $module == 'fulfillment-dashboard'}
+    <script src="{$rooturl}/modules/fulfillment/fulfillment.js?v=1"></script>
+    <script src="{$rooturl}/modules/fulfillment/dashboard.js?v=1.02"></script>
+    {/if}
+    {if $module == 'fulfillment-order'}
+    <script src="{$rooturl}/modules/fulfillment/fulfillment.js?v=1"></script>
+    <script src="{$rooturl}/modules/fulfillment/order.js?v=1.02"></script>
+    {/if}
+    {if $module == 'fulfillment-subprinting'}
+    <script src="{$rooturl}/modules/fulfillment/_modal_detail.js?v=1"></script>
+    <script src="{$rooturl}/modules/fulfillment/fulfillment.js?v=1"></script>
+    <script src="{$rooturl}/modules/fulfillment/subprinting.js?v=1.02"></script>
+    {/if}
+    {if $module == 'fulfillment-printmanagement'}
+    <script src="{$rooturl}/modules/fulfillment/_modal_detail.js?v=1"></script>
+    <script src="{$rooturl}/modules/fulfillment/fulfillment.js?v=1"></script>
+    <script src="{$rooturl}/modules/fulfillment/printmanagement.js?v=1.02"></script>
+    {/if}
+    {if $module == 'fulfillment-subshipping'}
+    <script src="{$rooturl}/modules/fulfillment/_modal_detail.js?v=1.02"></script>
+    <script src="{$rooturl}/modules/fulfillment/fulfillment.js?v=1.02"></script>
+    <script src="{$rooturl}/modules/fulfillment/subshipping.js?v=1.02"></script>
+    {/if}
+    {if $module == 'fulfillment-history'}
+    <script src="{$rooturl}/modules/fulfillment/history.js?v=2"></script>
+    {/if}
+
+    {if $module == 'partner-list'}
+    <script src="{$rooturl}/modules/partner/partner.js?v=3"></script>
+    {/if}
+
+    {if $module == 'inventory-base-group'}
+    <script src="{$rooturl}/modules/inventory/base_group.js?v=4"></script>
+    {/if}
+    {if $module == 'inventory-base-type'}
+    <script src="{$rooturl}/modules/inventory/base_type.js?v=2"></script>
+    {/if}
+    {if $module == 'inventory-base-color'}
+    <script src="{$rooturl}/modules/inventory/base_color.js?v=2"></script>
+    {/if}
+    {if $module == 'inventory-base-size'}
+    <script src="{$rooturl}/modules/inventory/base_size.js?v=2"></script>
+    {/if}
+    {if $module == 'inventory-base'}
+    <script src="{$rooturl}/modules/inventory/base.js?v=2"></script>
+    {/if}
+    {if $module == 'inventory-shipping-fee'}
+    <script src="{$rooturl}/modules/inventory/shipping_fee.js?v=2"></script>
+    {/if}
+
+    {if $module == 'setup-preference'}
+    <script src="{$rooturl}/modules/setup/preference.js?v=2"></script>
+    {/if}
+    {if $module == 'setup-category'}
+    <script src="{$rooturl}/modules/setup/category.js?v=2"></script>
+    {/if}
+    {if $module == 'setup-domain'}
+    <script src="{$rooturl}/modules/setup/domain.js?v=2"></script>
+    {/if}
+    {if $module == 'setup-log'}
+    <script src="{$rooturl}/modules/setup/log.js?v=2"></script>
+    {/if}
+    {if $module == 'setup-country'}
+    <script src="{$rooturl}/modules/setup/country.js?v=2"></script>
+    {/if}
+    {if $module == 'setup-state'}
+    <script src="{$rooturl}/modules/setup/state.js?v=2"></script>
+    {/if}
+    {if $module == 'setup-language'}
+    <script src="{$rooturl}/modules/setup/language.js?v=2"></script>
+    {/if}
+    {if $module == 'setup-timezone'}
+    <script src="{$rooturl}/modules/setup/timezone.js?v=2"></script>
+    {/if}
+    {if $module == 'setup-user-module'}
+    <script src="{$rooturl}/modules/setup/user_module.js?v=2"></script>
+    {/if}
+    {if $module == 'setup-user-group'}
+    <script src="{$rooturl}/modules/setup/user_group.js?v=2"></script>
+    {/if}
+    {if $module == 'setup-user'}
+    <script src="{$rooturl}/modules/setup/user.js?v=3"></script>
+    {/if}
+</body>
+
+</html>
+{literal}
+<script>
+    $('.nav-menu').find('li').on('click', function (e) {
+        if($(this).hasClass('active')){
+            $(this).removeClass('active');
+        }
+        else{
+            $('.nav-menu').find('li').removeClass('active');
+            $(this).addClass('active');
+        }
+    });
+</script>
+{/literal}

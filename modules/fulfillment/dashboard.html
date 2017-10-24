@@ -1,0 +1,254 @@
+<!-- Left menu -->
+{include file="$rootpath/modules/fulfillment/menu.html" module='dashboard'}
+
+<div class="main-content">
+    <div class="content-header">
+        <span class="heading-content-label">Dashboard</span>
+        <div class="content-option">
+            <ul class="nav navbar-nav">
+                <li class="list-item"><span>Show:</span></li>
+                <li class="list-item">
+                    <select class="form-control select-box" id="option-date">
+                        <option value="0">Today</option>
+                        <option value="-1">Yesterday</option>
+                        <option value="-6" selected="selected">Last 7 days</option>
+                        <option value="-27">Last 28 days</option>
+                        <option value="customize" iclass="ion-calendar">Customize</option>
+                    </select>
+                </li>
+                <li class="list-item customize-date" style="display:none;">
+                    <input type="text" class="form-control date-ranger-picker pull-right"
+                           id="option-date-ranger-picker">
+                </li>
+                <li class="list-item">
+                    <button class="btn-form btn-form-blank">
+                        Export data
+                        <i class="ion-ios-download-outline ion-right"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="content-box">
+        <ul class="list-group list-button">
+            <li id="created" dataname ="Awaiting for fulfillment"  class="list-group-item select">
+                Awaiting for fulfillment
+                <p id="p-awaiting">34.812</p>
+            </li>
+            <li id="placed" dataname ="Fulfilled Order" class="list-group-item">
+                Fulfilled Order
+                <p id="p-fulfilled">34.812</p>
+            </li>
+            <li class="list-group-item">
+                Fulfillment revenue
+                <p id="p-fulfilled-revenue">34.812</p>
+            </li>
+            <li id="fail" dataname ="Fail fulfillment" class="list-group-item">
+                Fail fulfillment
+                <p id="p-fail">34.812</p>
+            </li>
+            <li class="list-group-item">
+                Awaiting fulfillment rate
+                <ul class="box-rate">
+                    <li>
+                        <div id="awaiting-rate" class="chart-rate"></div>
+                    </li>
+                    <li id="awaiting-rate-text"></li>
+                </ul>
+            </li>
+            <li class="list-group-item">
+                Fulfillment rate
+                <ul class="box-rate">
+                    <li>
+                        <div id="fulfilled-rate" class="chart-rate"></div>
+                    </li>
+                    <li id="fulfilled-rate-text"></li>
+                </ul>
+            </li>
+            <li class="list-group-item">
+                Fail fulfillment rate
+                <ul class="box-rate">
+                    <li>
+                        <div id="fail-rate" class="chart-rate"></div>
+                    </li>
+                    <li id="fail-rate-text"></li>
+                </ul>
+            </li>
+        </ul>
+        <p class="box-title-char">Overview</p>
+        <div id="overview"></div>
+    </div>
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-md-6">
+            <div class="box">
+                <div class="box-header with-border">
+                    <p class="box-title-char">Printing statistics</p>
+                </div>
+                <div class="box-body">
+                    <div id="printing_statistics"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="box">
+                <div class="box-header with-border">
+                    <p class="box-title-char">Shipping statistics</p>
+                </div>
+                <div class="box-body">
+                    <div id="shipping_statistics"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header with-border">
+                    <p class="box-title-char">USER FEEDBACK STATISTICS</p>
+                </div>
+                <div class="box-body">
+                    <div class="col-md-6">
+                        <div class="div-status-order">
+                            <ul class="list-inline user-feedback">
+                                <li>
+                                    <p>Total feedback: 300</p>
+                                </li>
+                                <li>
+                                    Negative: 260
+                                </li>
+                                <li>
+                                    Positive: 40
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div>
+                            <div class="progress-group">
+                                <div class="process-y col-xs-1">
+                                    Aug
+                                </div>
+                                <div class="progress sm col-xs-11">
+                                    <div class="progress-bar progress-bar-aqua" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="progress-group">
+                                <div class="process-y col-xs-1">
+                                    Juli
+                                </div>
+                                <div class="progress sm col-xs-11">
+                                    <div class="progress-bar progress-bar-aqua" style="width: 30%"></div>
+                                </div>
+                            </div>
+                            <div class="progress-group">
+                                <div class="process-y col-xs-1">
+                                    Jun
+                                </div>
+                                <div class="progress sm col-xs-11">
+                                    <div class="progress-bar progress-bar-aqua" style="width: 50%"></div>
+                                </div>
+                            </div>
+                            <div class="progress-group">
+                                <div class="process-y col-xs-1">
+                                    May
+                                </div>
+                                <div class="progress sm col-xs-11">
+                                    <div class="progress-bar progress-bar-aqua" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="progress-group">
+                                <div class="col-xs-2 text-center">
+                                    0
+                                </div>
+                                <div class="col-xs-2 text-center">
+                                    20%
+                                </div>
+                                <div class="col-xs-2 text-center">
+                                    40%
+                                </div>
+                                <div class="col-xs-2 text-center">
+                                    60%
+                                </div>
+                                <div class="col-xs-2 text-center">
+                                    80%
+                                </div>
+                                <div class="col-xs-2 text-center">
+                                    100%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="div-status-order">
+                            <ul class="list-inline user-feedback">
+                                <li>
+                                    <p>Total feedback: 300</p>
+                                </li>
+                                <li>
+                                    Negative: 260
+                                </li>
+                                <li>
+                                    Positive: 40
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div>
+                            <div class="progress-group">
+                                <div class="process-y col-xs-1">
+                                    Aug
+                                </div>
+                                <div class="progress sm col-xs-11">
+                                    <div class="progress-bar progress-bar-aqua" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="progress-group">
+                                <div class="process-y col-xs-1">
+                                    Juli
+                                </div>
+                                <div class="progress sm col-xs-11">
+                                    <div class="progress-bar progress-bar-aqua" style="width: 30%"></div>
+                                </div>
+                            </div>
+                            <div class="progress-group">
+                                <div class="process-y col-xs-1">
+                                    Jun
+                                </div>
+                                <div class="progress sm col-xs-11">
+                                    <div class="progress-bar progress-bar-aqua" style="width: 50%"></div>
+                                </div>
+                            </div>
+                            <div class="progress-group">
+                                <div class="process-y col-xs-1">
+                                    May
+                                </div>
+                                <div class="progress sm col-xs-11">
+                                    <div class="progress-bar progress-bar-aqua" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="progress-group">
+                                <div class="col-xs-2 text-center">
+                                    0
+                                </div>
+                                <div class="col-xs-2 text-center">
+                                    20%
+                                </div>
+                                <div class="col-xs-2 text-center">
+                                    40%
+                                </div>
+                                <div class="col-xs-2 text-center">
+                                    60%
+                                </div>
+                                <div class="col-xs-2 text-center">
+                                    80%
+                                </div>
+                                <div class="col-xs-2 text-center">
+                                    100%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

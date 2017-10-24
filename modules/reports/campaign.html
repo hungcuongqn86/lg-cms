@@ -1,0 +1,109 @@
+<!-- Left menu -->
+{include file="$rootpath/modules/reports/menu.html" module='campaign'}
+
+<div class="main-content">
+    <div class="content-header">
+        <span class="heading-content-label">Campaign reports</span>
+        <div class="content-option">
+            <ul class="nav navbar-nav">
+                <li class="list-item"><span>Show:</span></li>
+                <li class="list-item">
+                    <select class="form-control select-box" id="option-date">
+                        <option value="today">Today</option>
+                        <option value="yesterday">Yesterday</option>
+                        <option value="last7days" selected="selected">Last 7 days</option>
+                        <option value="last28days">Last 28 days</option>
+                        <option value="customize" iclass="ion-calendar">Customize</option>
+                    </select>
+                </li>
+                <li class="list-item customize-date" style="display:none;">
+                    <input type="text" class="form-control date-ranger-picker pull-right" id="option-date-ranger-picker">
+                </li>
+                <li class="list-item">
+                    <button class="btn-form btn-form-blank">
+                        Export data
+                        <i class="ion-ios-download-outline ion-right"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="overview"></div>
+    <div class="content-body no-border">
+        <button class="btn-form btn-form-blank" id="btn-refresh">
+            <i class="ion-refresh"></i>
+            Refresh
+        </button>
+        <div class="dropdown dropdown-setting">
+            <a href="javascript:(void)" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="{$rooturl}resource/image/icons.png" style="margin-top:20px"></img>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <form class="form" role="form">
+                        <p>Show columns</p>
+                        <div class="form-group">
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-campaign" id="lb-chk-col-campaign-3" colnumb="3" checked>
+                                <label for="lb-chk-col-campaign-3">
+                                    Design
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-campaign" id="lb-chk-col-campaign-5" colnumb="5" checked>
+                                <label for="lb-chk-col-campaign-5">
+                                    Unit
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-campaign" id="lb-chk-col-campaign-7" colnumb="7" checked>
+                                <label for="lb-chk-col-campaign-7">
+                                    Conv. Rate
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-campaign" id="lb-chk-col-campaign-8" colnumb="8" checked>
+                                <label for="lb-chk-col-campaign-8">
+                                    Start Date
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-campaign" id="lb-chk-col-campaign-9" colnumb="9" checked>
+                                <label for="lb-chk-col-campaign-9">
+                                    End Date
+                                </label>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <button type="button" class="btn btn-form" id="btn-campaign-apply">
+                                Apply
+                            </button>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <div style="position:relative;margin-top: 20px">
+            <table id="tb-campaigns" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>Campaign Name</th>
+                    <th>ID Number</th>
+                    <th>Affiliates</th>
+                    <th>Design</th>
+                    <th>Order</th>
+                    <th>Units</th>
+                    <th>Visits</th>
+                    <th>Conv. Rate</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                </tbody>
+            </table>
+            <div class="data-loading" id="tb-campaigns-loader"><span style="margin: auto;"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i></span></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="left-menu">
+    <ul class="nav nav-menu">
+        <li {if $module == 'dashboard'}class="active"{/if}>
+            <a href="{$rooturl}index.php?module=reports-dashboard">
+                <img src="{$rooturl}/resource/image/bar-chart.png"/>
+                <span class="hidden-xs">Dashboard</span>
+            </a>
+        </li>
+        <li {if $module == 'affiliates'}class="active"{/if}>
+            <a href="{$rooturl}index.php?module=reports-affiliates">
+                <img src="{$rooturl}/resource/image/group-2.png"/>
+                <span class="hidden-xs">Affiliates reports</span>
+            </a>
+        </li>
+        <li {if $module == 'campaign'}class="active"{/if}>
+            <a href="{$rooturl}index.php?module=reports-campaign">
+                <img src="{$rooturl}/resource/image/startup.png"/>
+                <span class="hidden-xs">Campaign reports</span>
+            </a>
+        </li>
+        <li {if $module == 'selling'}class="active"{/if}>
+            <a href="{$rooturl}index.php?module=reports-selling">
+                <img src="{$rooturl}/resource/image/user-12.png"/>
+                <span class="hidden-xs">Selling/Revenue report</span>
+            </a>
+        </li>
+        <li {if $module == 'traffic'}class="active"{/if}>
+            <a href="{$rooturl}index.php?module=reports-traffic">
+                <img src="{$rooturl}/resource/image/transfer.png"/>
+                <span class="hidden-xs">Traffic reports</span>
+            </a>
+        </li>
+    </ul>
+</div>

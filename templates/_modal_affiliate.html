@@ -1,0 +1,315 @@
+<!-- jQuery 2.2.3 -->
+<script src="{$rooturl}resource/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- DataTables -->
+<script src="{$rooturl}resource/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="{$rooturl}resource/plugins/datatables/dataTables.bootstrap.js?v=1"></script>
+<script src="{$rooturl}templates/_modal_affiliate.js?v=8"></script>
+
+<div class="modal modal-affiliate" id="modal-affiliate">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" style="border:0">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+                <span class="modal-title"> <span id="affiliate-name"></span> - <span class="status">Status:</span> <span class="status-value" id="affiliate-status"></span></span>
+            </div>
+            <div class="modal-body">
+                <div class="content-tab">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#affiliate-home" role="tab" data-toggle="tab">
+                                <i class="ion-home"></i>
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#affiliate-campaign" role="tab" data-toggle="tab">
+                                <i class="ion-arrow-graph-up-right"></i>
+                                <span>Campaigns</span>
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="javascript:void(0)" role="tab" data-toggle="tab">
+                                <i class="ion-android-person"></i>
+                                <span>Accounting</span>
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="javascript:void(0)" role="tab" data-toggle="tab">
+                                <i class="ion-ios-telephone"></i>
+                                <span>Contact</span>
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="javascript:void(0)" role="tab" data-toggle="tab">
+                                <i class="ion-android-document"></i>
+                                <span>Document</span>
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="javascript:void(0)" role="tab" data-toggle="tab">
+                                <i class="ion-ios-clock"></i>
+                                <span>History</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="affiliate-home">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p class="text-style-1" id="affiliate-home-username"></p>
+                                <p class="text-style-2">Account manager: <span class="text-style-2 text-value">Admin</span></p>
+                                <div class="row">
+                                    <p class="col-xs-6 text-style-2">ID</p>
+                                    <p class="col-xs-6 text-style-2">Total campaign</p>
+                                    <p class="col-xs-6 text-style-2" id="affiliate-home-userid"></p>
+                                    <p class="col-xs-6 text-style-2" id="affiliate-home-total-campaign"></p>
+                                    <div class="clearfix"></div>
+                                    <div id="affiliate-order-chart" style="width:100%;height:100px;padding-left:15px;"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form-modal">
+                                    <div class="content-tab">
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active">
+                                                <a href="#affiliate-home-info" role="tab" data-toggle="tab">
+                                                    <span>Info</span>
+                                                </a>
+                                            </li>
+                                            <li role="presentation">
+                                                <a href="#affiliate-home-billing" role="tab" data-toggle="tab">
+                                                    <span>Billing & Payments</span>
+                                                </a>
+                                            </li>
+                                            <li role="presentation">
+                                                <a href="#affiliate-home-pixel" role="tab" data-toggle="tab">
+                                                    <span>Pixel</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane active" id="affiliate-home-info">
+                                            <form class="form-horizontal col-md-6" role="form">
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Name</label>
+                                                    <label class="col-sm-9 control-label text-value" id="affiliate-home-info-name"></label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Status</label>
+                                                    <div class="col-sm-9">
+                                                        <select class="form-control select-box" id="affiliate-home-info-status">
+                                                            <option value="approved">Approved</option>
+                                                            <option value="authorization_required">Authorization required</option>
+                                                            <option value="locked">Locked</option>
+                                                            <option value="deleted">Deleted</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="txt-form-name" class="col-sm-3 control-label">Manager</label>
+                                                    <div class="col-sm-9">
+                                                        <select class="form-control select-box" id="affiliate-home-info-manager">
+                                                            <option>Admin</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Website</label>
+                                                    <label class="col-sm-9 control-label text-value" id="affiliate-home-info-website"></label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Street</label>
+                                                    <label class="col-sm-9 control-label text-value" id="affiliate-home-info-street"></label>
+                                                </div>
+                                            </form>
+                                            <form class="form-horizontal col-md-6" role="form">
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label"><nobr>Street 2</nobr></label>
+                                                    <label class="col-sm-9 control-label text-value" id="affiliate-home-info-street-2"></label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">City</label>
+                                                    <label class="col-sm-9 control-label text-value" id="affiliate-home-info-city"></label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">State</label>
+                                                    <label class="col-sm-9 control-label text-value" id="affiliate-home-info-state"></label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Zipcode</label>
+                                                    <label class="col-sm-9 control-label text-value" id="affiliate-home-info-zipcode"></label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Country</label>
+                                                    <label class="col-sm-9 control-label text-value" id="affiliate-home-info-country"></label>
+                                                </div>
+                                            </form>
+                                            <div class="clearfix"></div>
+                                            <div class="text-right" style="margin: 0 15px 0 0">
+                                                <button type="button" class="btn-form" id="btn-affiliate-home-save">Save</button>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="affiliate-home-billing">
+                                            <div class="row" style="margin:0">
+                                                <form class="form-horizontal col-md-6" role="form">
+                                                    <div class="form-group">
+                                                        <label class="col-xs-12 control-label text-style-3">Paypal</label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 control-label"><nobr>Email</nobr></label>
+                                                        <label class="col-sm-9 control-label text-value" id="affiliate-home-billing-paypal-email"></label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 control-label"><nobr>First name</nobr></label>
+                                                        <label class="col-sm-9 control-label text-value" id="affiliate-home-billing-paypal-firstname"></label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 control-label"><nobr>Last name</nobr></label>
+                                                        <label class="col-sm-9 control-label text-value" id="affiliate-home-billing-paypal-lastname"></label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-xs-12 control-label text-style-3">Payoneer</label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 control-label">Email</label>
+                                                        <label class="col-sm-9 control-label text-value" id="affiliate-home-billing-payoneer-email"></label>
+                                                    </div>
+                                                </form>
+                                                <form class="form-horizontal col-md-6" role="form">
+                                                    <div class="form-group">
+                                                        <label class="col-xs-12 control-label text-style-3">Wire transfer</label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-4 control-label"><nobr>Account name</nobr></label>
+                                                        <label class="col-sm-8 control-label text-value" id="affiliate-home-billing-wiretransfer-accountname"></label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-4 control-label"><nobr>Account number</nobr></label>
+                                                        <label class="col-sm-8 control-label text-value" id="affiliate-home-billing-wiretransfer-accountnumb"></label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-4 control-label">Country</label>
+                                                        <label class="col-sm-8 control-label text-value" id="affiliate-home-billing-wiretransfer-country"></label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-4 control-label"><nobr>Routing number</nobr></label>
+                                                        <label class="col-sm-8 control-label text-value" id="affiliate-home-billing-wiretransfer-routingnumb"></label>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="affiliate-home-pixel">
+                                            <div class="row" style="margin:0">
+                                                <form class="form-horizontal col-xs-12" role="form">
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 control-label"><nobr>FB pixel</nobr></label>
+                                                        <label class="col-sm-9 control-label text-value" id="affiliate-home-pixel-fb"></label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 control-label"><nobr>GG manager</nobr></label>
+                                                        <label class="col-sm-9 control-label text-value" id="affiliate-home-pixel-gg"></label>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="loader" id="modal-affiliate-loader"></div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="affiliate-campaign">
+                        <div class="dropdown dropdown-setting">
+                            <a href="javascript:(void)" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="{$rooturl}resource/image/icons.png" style="margin-top:10px"></img>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <form class="form" role="form">
+                                        <p>Show columns</p>
+                                        <div class="form-group">
+                                            <div class="checkbox icheck checkbox-warning">
+                                                <input type="checkbox" class="chk-col-affiliate-campaign" id="lb-chk-col-affiliate-campaign-2" colnumb="2" checked>
+                                                <label for="lb-chk-col-affiliate-campaign-2">
+                                                    Design
+                                                </label>
+                                            </div>
+                                            <div class="checkbox icheck checkbox-warning">
+                                                <input type="checkbox" class="chk-col-affiliate-campaign" id="lb-chk-col-affiliate-campaign-4" colnumb="4" checked>
+                                                <label for="lb-chk-col-affiliate-campaign-4">
+                                                    Unit
+                                                </label>
+                                            </div>
+                                            <div class="checkbox icheck checkbox-warning">
+                                                <input type="checkbox" class="chk-col-affiliate-campaign" id="lb-chk-col-affiliate-campaign-6" colnumb="6" checked>
+                                                <label for="lb-chk-col-affiliate-campaign-6">
+                                                    Conv. Rate
+                                                </label>
+                                            </div>
+                                            <div class="checkbox icheck checkbox-warning">
+                                                <input type="checkbox" class="chk-col-affiliate-campaign" id="lb-chk-col-affiliate-campaign-7" colnumb="7" checked>
+                                                <label for="lb-chk-col-affiliate-campaign-7">
+                                                    Start Date
+                                                </label>
+                                            </div>
+                                            <div class="checkbox icheck checkbox-warning">
+                                                <input type="checkbox" class="chk-col-affiliate-campaign" id="lb-chk-col-affiliate-campaign-8" colnumb="8" checked>
+                                                <label for="lb-chk-col-affiliate-campaign-8">
+                                                    End Date
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="text-right">
+                                            <button type="button" class="btn btn-form" id="btn-affiliate-campaign-apply">
+                                                Apply
+                                            </button>
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                        <div style="position: relative;">
+                            <table id="tb-affiliate-campaign" class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Campaign Name</th>
+                                    <th>ID Number</th>
+                                    <th>Design</th>
+                                    <th>Order</th>
+                                    <th>Units</th>
+                                    <th>Visits</th>
+                                    <th>Conv. Rate</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                
+                                </tbody>
+                            </table>
+                            <div class="data-loading" id="tb-affiliate-campaign-loader"><span style="margin: auto;"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i></span></div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="affiliate-accounting">
+                        
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="affiliate-contact">
+                            
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="affiliate-document">
+                            
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="affiliate-history">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

@@ -1,0 +1,181 @@
+<div class="main-content">
+    <div class="content-header" style="margin-bottom: 15px">
+        <span class="box-title-char" style="line-height:60px;">Overview</span>
+        <div class="content-option">
+            <ul class="nav navbar-nav">
+                <li class="list-item"><span>Show:</span></li>
+                <li class="list-item">
+                    <select class="form-control select-box" id="option-date">
+                        <option value="today">Today</option>
+                        <option value="yesterday">Yesterday</option>
+                        <option value="last7days" selected="selected">Last 7 days</option>
+                        <option value="last28days">Last 28 days</option>
+                        <option value="customize" iclass="ion-calendar">Customize</option>
+                    </select>
+                </li>
+                <li class="list-item customize-date" style="display:none;">
+                    <input type="text" class="form-control date-ranger-picker pull-right"
+                           id="option-date-ranger-picker">
+                </li>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-xs-3">
+                <div class="status-order" style="background-color: #364760;">
+                    <span><img src="{$rooturl}/resource/image/upload.png"/></span>
+                    <p id="p-count-received">0</p>
+                    Received
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="status-order" style="background-color: #1498ea;">
+                    <span><img src="{$rooturl}/resource/image/printer.svg"/></span>
+                    <p id="p-count-printing">0</p>
+                    Printing
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="status-order" style="background-color: #084e8a;">
+                    <span><img src="{$rooturl}/resource/image/laptop-1.svg"/></span>
+                    <p id="p-count-printed">0</p>
+                    Printed
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="status-order" style="background-color: #03be5b;">
+                    <span><img src="{$rooturl}/resource/image/like.svg"/></span>
+                    <p id="p-count-done">0</p>
+                    Done
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-body no-border">
+        <button class="btn-form btn-form-blank" id="btn-refresh">
+            <i class="ion-refresh"></i>
+            Refresh
+        </button>
+        <button class="btn-form" id="btn-form-accept">
+            <i class="ion-ios-printer"></i>
+            Collect order to print
+        </button>
+        <div class="dropdown dropdown-setting">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="{$rooturl}resource/image/icons.png" style="margin-top:10px;margin-left:15px"></img>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <form class="form" role="form">
+                        <p>Show columns</p>
+                        <div class="form-group">
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-printing" id="lb-chk-col-printing-3" colnumb="3" checked>
+                                <label for="lb-chk-col-printing-3">
+                                    Front/Back Product Image
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-printing" id="lb-chk-col-printing-4" colnumb="4" checked>
+                                <label for="lb-chk-col-printing-4">
+                                    Front/Back Art
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-printing" id="lb-chk-col-printing-5" colnumb="5" checked>
+                                <label for="lb-chk-col-printing-5">
+                                    Quantity
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-printing" id="lb-chk-col-printing-6" colnumb="6" checked>
+                                <label for="lb-chk-col-printing-6">
+                                    Received date
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-printing" id="lb-chk-col-printing-7" colnumb="7" checked>
+                                <label for="lb-chk-col-printing-7">
+                                    Due date
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-printing" id="lb-chk-col-printing-8" colnumb="8" checked>
+                                <label for="lb-chk-col-printing-8">
+                                    Expire date
+                                </label>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <button type="button" class="btn btn-form" id="btn-printing-apply">
+                                Apply
+                            </button>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <div class="content-option">
+            <ul class="nav navbar-nav">
+                <li class="list-item"><span>Filter by</span></li>
+                <li class="list-item">
+                    <select class="form-control select-box" id="option-state">
+                        <option value="" selected="selected">All</option>
+                        <option value="created">Received</option>
+                        <option value="deny">Deny</option>
+                        <option value="printing">Printing</option>
+                        <option value="printed">Printed</option>
+                        <option value="reject">Rejected</option>
+                        <option value="approved">Done</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row form-accept" id="div-form-accept" style="display:none;">
+            <div class="form-group col-md-4 col-sm-6">
+                <label for="sl-form-partner" class="control-label">Info</label>
+                <div class="form-group">
+                    <textarea class="form-control text-area" rows="3" id="txt-form-info"></textarea>
+                    <p id="p-accept-problem" style="color:red;margin-top:10px;display:none;">Please select row(s)</p>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn-form" id="btn-accept">
+                        <i class="ion-checkmark"></i>Accept
+                    </button>
+                </div>
+                
+            </div>
+        </div>
+        <div style="position: relative;margin-top: 20px">
+            <table id="tb-form" class="table table-bordered table-striped" style="width:100%">
+                <thead>
+                <tr>
+                    <th style="width:10px">
+                        <div class="checkbox icheck checkbox-warning">
+                            <input type="checkbox" class="chk-all">
+                            <label></label>
+                        </div>
+                    </th>
+                    <th>Status</th>
+                    <th>Product name</th>
+                    <th>Front/Back Product Image</th>
+                    <th>Front/Back Art</th>
+                    <th>Quantity</th>
+                    <th>Received date</th>
+                    <th>Due date</th>
+                    <th>Expire date</th>
+                    <th style="width:20px"></th>
+                    <th style="width:20px"></th>
+                </tr>
+                </thead>
+                <tbody>
+    
+                </tbody>
+            </table>
+            <div class="data-loading" id="tb-form-loader"><span style="margin: auto;"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i></span></div>
+        </div>
+    </div>
+</div>
+
+{include file="$rootpath/portals/modules/printing/_modal_printing.html"}

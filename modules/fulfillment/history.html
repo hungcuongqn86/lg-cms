@@ -1,0 +1,358 @@
+<!-- Left menu -->
+{include file="$rootpath/modules/fulfillment/menu.html" module='history'}
+
+<div class="main-content">
+    <div class="content-header">
+        <span class="heading-content-label">Fulfillment history</span>
+        <div class="content-option">
+            <ul class="nav navbar-nav">
+                <li class="list-item"><span>Show:</span></li>
+                <li class="list-item">
+                    <select class="form-control select-box" id="option-date">
+                        <option value="today">Today</option>
+                        <option value="yesterday">Yesterday</option>
+                        <option value="last7days" selected="selected">Last 7 days</option>
+                        <option value="last28days">Last 28 days</option>
+                        <option value="customize" iclass="ion-calendar">Customize</option>
+                    </select>
+                </li>
+                <li class="list-item customize-date" style="display:none;">
+                    <input type="text" class="form-control date-ranger-picker pull-right" id="option-date-ranger-picker">
+                </li>
+                <li class="list-item">
+                    <button class="btn-form btn-form-blank">
+                        Export data
+                        <i class="ion-ios-download-outline ion-right"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="content-body no-border">
+        <div class="content-tab">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#history-payment" role="tab" data-toggle="tab">
+                        <i class="ion-card"></i>
+                        <span>Payment</span>
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="#history-order-campaign" role="tab" data-toggle="tab">
+                        <i class="ion-arrow-graph-up-right"></i>
+                        <span>Order campaign</span>
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="#history-order-product" role="tab" data-toggle="tab">
+                        <i class="ion-ios-cart"></i>
+                        <span>Order product</span>
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="#history-campaign" role="tab" data-toggle="tab">
+                        <i class="ion-android-stopwatch"></i>
+                        <span>Campaign</span>
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="#history-product" role="tab" data-toggle="tab">
+                        <i class="ion-bag"></i>
+                        <span>Product</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="history-payment">
+                <button class="btn-form btn-form-blank" id="btn-refresh-payment">
+                    <i class="ion-refresh"></i>
+                    Refresh
+                </button>
+                <div class="dropdown dropdown-setting">
+                    <a href="javascript:(void)" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="{$rooturl}resource/image/icons.png" style="margin-top: 10px;"></img>
+                    </a>
+                </div>
+                <div class="content-option">
+                    <ul class="nav navbar-nav">
+                        <li class="list-item"><span>Filter by</span></li>
+                        <li class="list-item">
+                            <select class="form-control select-box" id="option-payment-state">
+                                <option value="">All</option>
+                                <option value="approved" selected="selected">Approved</option>
+                                <option value="created">Created</option>
+                                <option value="fail">Failed</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+                <div style="position:relative;margin-top: 20px">
+                    <table id="tb-payment" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Payments</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Total</th>
+                                <th></th>
+                                <th><span id="lb-payment-total"></span></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <div class="data-loading" id="tb-payment-loader"><span style="margin: auto;"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i></span></div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="history-order-campaign">
+                <button class="btn-form btn-form-blank" id="btn-refresh-order-campaign">
+                    <i class="ion-refresh"></i>
+                    Refresh
+                </button>
+                <div class="dropdown dropdown-setting">
+                    <a href="javascript:(void)" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="{$rooturl}resource/image/icons.png" style="margin-top: 10px;"></img>
+                    </a>
+                </div>
+                <div class="content-option">
+                    <ul class="nav navbar-nav">
+                        <li class="list-item"><span>Filter by</span></li>
+                        <li class="list-item">
+                            <select class="form-control select-box" id="option-order-campaign-state">
+                                <option value="">All</option>
+                                <option value="approved" selected="selected">Approved</option>
+                                <option value="created">Created</option>
+                                <option value="fail">Failed</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+                <div style="position:relative;margin-top: 20px">
+                    <table id="tb-order-campaign" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Campaigns</th>
+                                <th>Quantity</th>
+                                <th>Amount</th>
+                                <th style="width:10px"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Total</th>
+                                <th></th>
+                                <th><span id="lb-order-campaign-total-quantity"></span></th>
+                                <th><span id="lb-order-campaign-total-amount"></span></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <div class="data-loading" id="tb-order-campaign-loader"><span style="margin: auto;"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i></span></div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="history-order-product">
+                <button class="btn-form btn-form-blank" id="btn-refresh-order-product">
+                    <i class="ion-refresh"></i>
+                    Refresh
+                </button>
+                <div class="dropdown dropdown-setting">
+                    <a href="javascript:(void)" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="{$rooturl}resource/image/icons.png" style="margin-top: 10px;"></img>
+                    </a>
+                </div>
+                <div class="content-option">
+                    <ul class="nav navbar-nav">
+                        <li class="list-item"><span>Filter by</span></li>
+                        <li class="list-item">
+                            <select class="form-control select-box" id="option-order-product-state">
+                                <option value="">All</option>
+                                <option value="approved" selected="selected">Approved</option>
+                                <option value="created">Created</option>
+                                <option value="fail">Failed</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+                <div style="position:relative;margin-top: 20px">
+                    <table id="tb-order-product" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Products</th>
+                                <th>Quantity</th>
+                                <th>Amount</th>
+                                <th style="width:10px"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Total</th>
+                                <th></th>
+                                <th><span id="lb-order-product-total-quantity"></span></th>
+                                <th><span id="lb-order-product-total-amount"></span></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <div class="data-loading" id="tb-order-product-loader"><span style="margin: auto;"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i></span></div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="history-campaign">
+                <button class="btn-form btn-form-blank" id="btn-refresh-campaign">
+                    <i class="ion-refresh"></i>
+                    Refresh
+                </button>
+                <div class="dropdown dropdown-setting">
+                    <a href="javascript:(void)" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="{$rooturl}resource/image/icons.png" style="margin-top: 10px;"></img>
+                    </a>
+                </div>
+                <div class="content-option">
+                    <ul class="nav navbar-nav">
+                        <li class="list-item"><span>Filter by</span></li>
+                        <li class="list-item">
+                            <select class="form-control select-box" id="option-campaign-state">
+                                <option value="">All</option>
+                                <option value="approved">Approved</option>
+                                <option value="launching" selected="selected">Launching</option>
+                                <option value="locked">Locked</option>
+                                <option value="deleted">Deleted</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+                <div style="position:relative;margin-top: 20px">
+                    <table id="tb-campaign" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Campaigns</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Total</th>
+                                <th><span id="lb-campaign-total"></span></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <div class="data-loading" id="tb-campaign-loader"><span style="margin: auto;"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i></span></div>
+                </div>  
+            </div>
+            <div role="tabpanel" class="tab-pane" id="history-product">
+                <button class="btn-form btn-form-blank" id="btn-refresh-product">
+                    <i class="ion-refresh"></i>
+                    Refresh
+                </button>
+                <div class="dropdown dropdown-setting">
+                    <a href="javascript:(void)" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="{$rooturl}resource/image/icons.png" style="margin-top: 10px;"></img>
+                    </a>
+                </div>
+                <div class="content-option">
+                    <ul class="nav navbar-nav">
+                        <li class="list-item"><span>Filter by</span></li>
+                        <li class="list-item">
+                            <select class="form-control select-box" id="option-product-state">
+                                <option value="">All</option>
+                                <option value="approved" selected="selected">Approved</option>
+                                <option value="deleted">Deleted</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+                <div style="position:relative;margin-top: 20px">
+                    <table id="tb-product" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Products</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Total</th>
+                                <th><span id="lb-product-total"></span></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <div class="data-loading" id="tb-product-loader"><span style="margin: auto;"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i></span></div>
+                </div>  
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modal-product-detail">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="loader" id="modal-prod-detail-loader"></div>
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                    <i class="ion-ios-cart"></i><span class="modal-title"> Order product - <span class="status">Date:</span> <span class="status" id="date-product-detail"></span></span>
+                </div>
+            <div class="modal-body">
+                <table id="tb-product-detail" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Amount</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    
+                    </tbody>
+                </table>
+                <div class="data-loading" id="tb-product-detail-loader"><span style="margin: auto;"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i></span></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modal-campaign-detail">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="loader" id="modal-campaign-detail-loader"></div>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                        <i class="ion-ios-cart"></i><span class="modal-title"> Order campaign - <span class="status">Date:</span> <span class="status" id="date-campaign-detail"></span></span>
+                    </div>
+                <div class="modal-body">
+                    <table id="tb-campaign-detail" class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Quantity</th>
+                            <th>Amount</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        
+                        </tbody>
+                    </table>
+                    <div class="data-loading" id="tb-campaign-detail-loader"><span style="margin: auto;"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i></span></div>
+                </div>
+            </div>
+        </div>
+    </div>

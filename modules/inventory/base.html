@@ -1,0 +1,480 @@
+<!-- Left menu -->
+{include file="$rootpath/modules/inventory/menu.html" module='base'}
+
+<div class="main-content">
+    <div class="content-header">
+        <span class="heading-content-label">Base</span>
+    </div>
+    <div id="overview"></div>
+    <div class="content-body no-border">
+        <button class="btn-form btn-form-blank" id="btn-add">
+            <i class="ion-plus"></i>
+            Add
+        </button>
+        <button class="btn-form btn-form-blank" id="btn-refresh">
+            <i class="ion-refresh"></i>
+            Refresh
+        </button>
+        <div class="dropdown dropdown-setting">
+            <a href="javascript:(void)" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="{$rooturl}resource/image/icons.png" style="margin-top: 10px;"></img>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <form class="form" role="form">
+                        <p>Show columns</p>
+                        <div class="form-group">
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-tb" id="lb-chk-col-tb-2" colnumb="2" checked>
+                                <label for="lb-chk-col-tb-2">
+                                    Description
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-tb" id="lb-chk-col-tb-4" colnumb="4" checked>
+                                <label for="lb-chk-col-tb-4">
+                                    Front/Back img
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-tb" id="lb-chk-col-tb-6" colnumb="6" checked>
+                                <label for="lb-chk-col-tb-6">
+                                    State
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-tb" id="lb-chk-col-tb-7" colnumb="7" checked>
+                                <label for="lb-chk-col-tb-7">
+                                    Create
+                                </label>
+                            </div>
+                            <div class="checkbox icheck checkbox-warning">
+                                <input type="checkbox" class="chk-col-tb" id="lb-chk-col-tb-8" colnumb="8" checked>
+                                <label for="lb-chk-col-tb-8">
+                                    Update
+                                </label>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <button type="button" class="btn btn-form" id="btn-form-apply">
+                                Apply
+                            </button>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <div class="content-option">
+            <ul class="nav navbar-nav">
+                <li class="list-item"><span>Filter by</span></li>
+                <li class="list-item">
+                    <select class="form-control select-box" id="option-filter-state">
+                        <option value="">All</option>
+                        <option value="approved" selected="selected">Approved</option>
+                        <option value="unapproved">Unapproved</option>
+                        <option value="deleted">Deleted</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+        <div style="position: relative;margin-top: 20px">
+            <table id="tb-form" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Front/Back img</th>
+                        <th>Position</th>
+                        <th>State</th>
+                        <th>Create</th>
+                        <th>Update</th>
+                    <th style="width:10px"></th>
+                    <th style="width:10px"></th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                </tbody>
+            </table>
+            <div class="data-loading" id="tb-form-loader"><span style="margin: auto;"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i></span></div>
+        </div>
+        
+    </div>
+</div>
+
+<div class="modal modal-form" id="modal-form">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="loader" id="modal-form-loader"></div>
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+                <span class="modal-title">Form detail</span>
+            </div>
+            <div class="modal-body">
+                <div class="content-tab">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#tab1" role="tab" data-toggle="tab">
+                                <span>General</span>
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#tab2" role="tab" data-toggle="tab">
+                                <span>Front Img</span>
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#tab3" role="tab" data-toggle="tab">
+                                <span>Back Img</span>
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#tab4" role="tab" data-toggle="tab">
+                                <span>Sizes</span>
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#tab5" role="tab" data-toggle="tab">
+                                <span>Colors</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="tab1">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label for="sl-form-type" class="col-sm-3 control-label">Type</label>
+                                <div class="col-sm-9">
+                                <select class="form-control selectpicker" id="sl-form-type" style="width:100%">
+                                </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txt-form-name" class="col-sm-3 control-label">Name</label>
+                                <div class="col-sm-9">
+                                <input type="text" class="form-control" id="txt-form-name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txt-form-desc" class="col-sm-3 control-label">Description</label>
+                                <div class="col-sm-9">
+                                <textarea class="form-control" rows="3" id="txt-form-desc"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txt-form-position" class="col-sm-3 control-label">Position</label>
+                                <div class="col-sm-9">
+                                <input type="text" class="form-control" id="txt-form-position">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txt-form-state" class="col-sm-3 control-label">State</label>
+                                <div class="col-sm-9">
+                                <select class="form-control select-box" id="sl-form-state">
+                                    <option value="approved">Approved</option>
+                                    <option value="unapproved">Unapproved</option>
+                                    <option value="deleted">Deleted</option>
+                                </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txt-form-price" class="col-sm-3 control-label">Price</label>
+                                <div class="col-sm-9">
+                                <input type="text" class="form-control" id="txt-form-price">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txt-form-currency" class="col-sm-3 control-label">Currency</label>
+                                <div class="col-sm-9">
+                                <!--<input type="text" class="form-control" id="sl-form-currency">-->
+                                <select class="form-control select-box" id="sl-form-currency">
+                                    <option value="USD">USD</option>
+                                    <option value="EUR">EUR</option>
+                                    <option value="VND">VND</option>
+                                </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txt-form-full-fillment" class="col-sm-3 control-label">Full fillment</label>
+                                <div class="col-sm-9">
+                                <input type="text" class="form-control" id="txt-form-full-fillment">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="chk-form-include" class="col-sm-3 control-label">Include</label>
+                                <div class="col-sm-9">
+                                <div class="checkbox icheck checkbox-warning" style="padding-top:12px">
+                                    <input type="checkbox" id="chk-form-include">
+                                    <label></label>
+                                </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="text-right">
+                            <button type="button" class="btn-form btn-form-md" id="btn-form-save">Save</button>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="tab2">
+                        <div class="row">
+                            <form class="form-horizontal col-md-8" role="form">
+                                <div class="form-group">
+                                    <label for="txt-form-front-img-url" class="col-sm-4 control-label">Front img URL</label>
+                                    <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="txt-form-front-img-url">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txt-form-front-img-width" class="col-sm-4 control-label">Front img width</label>
+                                    <div class="col-sm-8">
+                                    <input type="text" class="form-control img-front-size" id="txt-form-front-img-width">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txt-form-front-img-height" class="col-sm-4 control-label">Front img height</label>
+                                    <div class="col-sm-8">
+                                    <input type="text" class="form-control img-front-size" id="txt-form-front-img-height">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txt-form-printable-front-top" class="col-sm-4 control-label">Printable front top</label>
+                                    <div class="col-sm-8">
+                                    <input type="text" class="form-control printable-front" id="txt-form-printable-front-top">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txt-form-printable-front-left" class="col-sm-4 control-label">Printable front left</label>
+                                    <div class="col-sm-8">
+                                    <input type="text" class="form-control printable-front" id="txt-form-printable-front-left">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txt-form-printable-front-width" class="col-sm-4 control-label">Printable front width</label>
+                                    <div class="col-sm-8">
+                                    <input type="text" class="form-control printable-front" id="txt-form-printable-front-width">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txt-form-printable-front-height" class="col-sm-4 control-label">Printable front height</label>
+                                    <div class="col-sm-8">
+                                    <input type="text" class="form-control printable-front" id="txt-form-printable-front-height">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">Upload</label>
+                                    <div class="col-sm-8">
+                                    <div id="drag-and-drop-front" class="uploader">
+                                        <div>Drag &amp; Drop Images Here</div>
+                                        <div class="or">-or-</div>
+                                        <div class="browser">
+                                        <label>
+                                            <span>Click to open the file Browser</span>
+                                            <input type="file" name="files-front[]" title='Click to add Files'>
+                                        </label>
+                                        </div>
+                                    </div>
+                                    <div id='progress-front'>
+                                        
+                                    </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="col-md-4">
+                                <div id="div-front-bgr" style="position:relative">
+                                    <img id="img-front" src=""/>
+                                    <div id="div-printable-front" style="position:absolute;background-color:transparent;border: 1px solid lightgray"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="tab3">
+                        <div class="row">
+                            <form class="form-horizontal col-md-8" role="form">
+                                <div class="form-group">
+                                    <label for="txt-form-back-img-url" class="col-sm-4 control-label">Back img URL</label>
+                                    <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="txt-form-back-img-url">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txt-form-back-img-width" class="col-sm-4 control-label">Back img width</label>
+                                    <div class="col-sm-8">
+                                    <input type="text" class="form-control img-back-size" id="txt-form-back-img-width">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txt-form-back-img-height" class="col-sm-4 control-label">Back img height</label>
+                                    <div class="col-sm-8">
+                                    <input type="text" class="form-control img-back-size" id="txt-form-back-img-height">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txt-form-printable-back-top" class="col-sm-4 control-label">Printable back top</label>
+                                    <div class="col-sm-8">
+                                    <input type="text" class="form-control printable-back" id="txt-form-printable-back-top">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txt-form-printable-back-left" class="col-sm-4 control-label">Printable back left</label>
+                                    <div class="col-sm-8">
+                                    <input type="text" class="form-control printable-back" id="txt-form-printable-back-left">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txt-form-printable-back-width" class="col-sm-4 control-label">Printable back width</label>
+                                    <div class="col-sm-8">
+                                    <input type="text" class="form-control printable-back" id="txt-form-printable-back-width">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txt-form-printable-back-height" class="col-sm-4 control-label">Printable back height</label>
+                                    <div class="col-sm-8">
+                                    <input type="text" class="form-control printable-back" id="txt-form-printable-back-height">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">Upload</label>
+                                    <div class="col-sm-8">
+                                    <div id="drag-and-drop-back" class="uploader">
+                                        <div>Drag &amp; Drop Images Here</div>
+                                        <div class="or">-or-</div>
+                                        <div class="browser">
+                                        <label>
+                                            <span>Click to open the file Browser</span>
+                                            <input type="file" name="files-back[]" title='Click to add Files'>
+                                        </label>
+                                        </div>
+                                    </div>
+                                    <div id='progress-back'>
+                                        
+                                    </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="col-md-4">
+                                <div id="div-back-bgr" style="position:relative">
+                                <img id="img-back" src=""/>
+                                <div id="div-printable-back" style="position:absolute;background-color:transparent;border: 1px solid lightgray"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="tab4">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <h4 style="color:green;">Sizes available</h4>
+                                <table id="tb-base-size-available" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                    <th>
+                                        <div class="checkbox icheck checkbox-warning">
+                                            <input type="checkbox" class="chk-all-size-available">
+                                            <label></label>
+                                        </div>
+                                    </th>
+                                    <th>Name</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    
+                                    </tbody>
+                                </table>
+                                </div>
+                                <div class="col-md-2" style="margin-top:80px">
+                                <div class="form-group">
+                                    <button type="button" class="btn-form btn-form-green form-control" id="btn-form-size-assign">
+                                        <i class="ion-arrow-right-c"></i> Assign
+                                    </button>
+                                </div>
+                                <div class="form-group">
+                                    <button type="button" class="btn-form btn-form-red form-control" id="btn-form-size-remove">
+                                        <i class="ion-arrow-left-c"></i> Remove
+                                    </button>
+                                </div>
+                                </div>
+                                <div class="col-md-5">
+                                <h4 style="color:red">Sizes assigned</h4>
+                                <table id="tb-base-size" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                    <th>
+                                        <div class="checkbox icheck checkbox-warning">
+                                            <input type="checkbox" class="chk-all-size">
+                                            <label></label>
+                                        </div>
+                                    </th>
+                                    <th>Name</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="tab5">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <h4 style="color:green">Colors available</h4>
+                                <table id="tb-base-color-available" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                    <th>
+                                        <div class="checkbox icheck checkbox-warning">
+                                            <input type="checkbox" class="chk-all-color-available">
+                                            <label></label>
+                                        </div>
+                                    </th>
+                                    <th>Name</th>
+                                    <th>Value</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    
+                                    </tbody>
+                                </table>
+                                </div>
+                                <div class="col-md-2" style="margin-top:80px">
+                                <div class="form-group">
+                                    <button type="button" class="btn-form btn-form-green form-control" id="btn-form-color-assign">
+                                        <i class="ion-arrow-right-c"></i> Assign
+                                    </button>
+                                </div>
+                                <div class="form-group">
+                                    <button type="button" class="btn-form btn-form-red form-control" id="btn-form-color-remove">
+                                        <i class="ion-arrow-left-c"></i> Remove
+                                    </button>
+                                </div>
+                                </div>
+                                <div class="col-md-5">
+                                <h4 style="color:red">Colors assigned</h4>
+                                <table id="tb-base-color" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                    <th>
+                                        <div class="checkbox icheck checkbox-warning">
+                                            <input type="checkbox" class="chk-all-color">
+                                            <label></label>
+                                        </div>
+                                    </th>
+                                    <th>Name</th>
+                                    <th>Value</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
